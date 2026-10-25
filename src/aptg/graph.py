@@ -34,8 +34,16 @@ def _episode_rows(ep):
 
 def build_graph(ep, baseline=None, window: int = 10, stride: int = 5, n_perm: int = 100,
                 block: int = 5, min_samples: int = 8, q: float = 0.05, seed: int = 0,
-                **edge_kw) -> List[nx.DiGraph]:
-    """Windowed directed graphs for one episode (see module docstring)."""
+                correction: str = "bh", **edge_kw) -> List[nx.DiGraph]:
+    """Windowed directed graphs for one episode (see module docstring).
+
+    correction: "bh" (Benjamini-Hochberg over the window's calibrated ordered pairs) or
+    "maxT" (Westfall-Young max-statistic family-wise control: an edge is significant when
+    (1 + #{draws b: max over calibrated edges of the b-th null window mean >= w}) / (1 + n_perm) <= q).
+    BH cannot reject a single edge when 1/(n_perm+1) > q/m (e.g. m=6, n_perm<=100); maxT can.
+    """
+    if correction not in ("bh", "maxT"):
+        raise ValueError("correction must be 'bh' or 'maxT'")
     ep = _episode_rows(ep)
     if window < 1 or stride < 1:
         raise ValueError("window and stride must be >= 1")
@@ -50,17 +58,28 @@ def build_graph(ep, baseline=None, window: int = 10, stride: int = 5, n_perm: in
         for (i, j), r in res.items():
             m = (r["t"] >= s) & (r["t"] < s + window)
             n = int(m.sum())
+            nullm = None
             if n == 0:
                 w, p = 0.0, 1.0
             else:
+                nullm = r["null"][:, m].mean(1)
                 w = float(r["gain"][m].mean())
                 p = float((1 + np.sum(r["null"][:, m].mean(1) >= w)) / (1 + len(r["null"])))
             G.add_edge(i, j, w=w, p=p, n=n, calibrated=bool(n >= min_samples and in_cal), sig=False)
+            G.edges[i, j]["_null"] = nullm
         cal = [(i, j) for i, j, d in G.edges(data=True) if d["calibrated"]]
-        if cal:
+        if cal and correction == "bh":
             rej = bh_correct([G.edges[e]["p"] for e in cal], q)
             for e, r_ in zip(cal, rej):
                 G.edges[e]["sig"] = bool(r_ and G.edges[e]["w"] > 0)
+        elif cal:
+            M = np.max(np.stack([G.edges[e]["_null"] for e in cal]), axis=0)
+            for e in cal:
+                padj = float((1 + np.sum(M >= G.edges[e]["w"])) / (1 + len(M)))
+                G.edges[e]["p_adj"] = padj
+                G.edges[e]["sig"] = bool(padj <= q and G.edges[e]["w"] > 0)
+        for _, _, d in G.edges(data=True):
+            d.pop("_null", None)
         graphs.append(G)
     return graphs
 

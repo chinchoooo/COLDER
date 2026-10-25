@@ -96,3 +96,14 @@ def test_change_point_detects_onset():
     stat, idx = change_point(x)
     assert idx == 6 and stat > 3
     assert change_point(np.zeros(10)) == (0.0, 0)
+
+
+def test_maxT_flags_single_strong_edge_that_bh_cannot_with_few_permutations():
+    from aptg.agents import simulate_episode
+    ep = simulate_episode("leader_follower", "C4", 80)
+    sig_bh = sum(d["sig"] for G in build_graph(ep, None, n_perm=50) for *_, d in G.edges(data=True))
+    gs = build_graph(ep, None, n_perm=50, correction="maxT")
+    sig = {(i, j): sum(G.edges[i, j]["sig"] for G in gs) for i in range(3) for j in range(3) if i != j}
+    assert sig_bh == 0                      # BH: min p 1/51 > 0.05/6
+    assert max(sig, key=sig.get) == (0, 1) and sig[(0, 1)] >= 1
+    assert sig[(1, 0)] == 0
