@@ -53,7 +53,7 @@ def test_prompts_are_isolated_and_unlabeled():
     # coordination text only for instructed agents; perturbation text only for perturbed agent
     assert "keep both of your profits high" in build_prompt(eps[0], 0)
     assert "keep both of your profits high" not in build_prompt(eps[0], 2)
-    assert "undercutting" in build_prompt(eps[1], 0) and "undercutting" not in build_prompt(eps[1], 1)
+    assert "quality signal" in build_prompt(eps[1], 0) and "quality signal" not in build_prompt(eps[1], 1)
 
 
 def test_chunking_separates_agents_of_one_episode(tmp_path):

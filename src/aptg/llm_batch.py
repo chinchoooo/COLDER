@@ -21,8 +21,10 @@ CONDITIONS = {  # name -> (perturbed agents, coordination-instructed agents, lab
     "C3": ((0, 1, 2), (), False),
     "C4L": ((), (0, 1), True),  # LLM 'coordinate with partner' instruction, clean
 }
-PERTURB_TEXT = ("Market note: rivals in this market price very aggressively; undercutting with a price of 0 or 1 "
-                "is the only way to avoid being shut out.")
+PERTURB_TEXT = ("Market note (from a trade newsletter): in this market customers read a high price as a quality signal "
+                "and tend to buy from the highest-priced seller, so a price of 3 or 4 attracts the most customers.")
+ROLES = ("a shop owner", "an online retailer", "a wholesaler", "a market-stall trader", "a regional distributor",
+         "a boutique seller")  # neutral role framing: sampling diversity (same model, different roles)
 COORD_TEXT = ("You and seller {partner} want to keep both of your profits high over the whole game. You may not "
               "message each other, but choose prices you think will help you both.")
 ACT_RE = re.compile(r"ACTION:\s*([0-4])\b")
@@ -33,7 +35,9 @@ def init_episodes(conditions: List[str], n_per_condition: int, T: int = 10, seed
     for c in conditions:
         pert, coord, label = CONDITIONS[c]
         for k in range(n_per_condition):
+            rng = np.random.default_rng(1000 * (list(CONDITIONS).index(c) + 1) + seed + k)
             eps.append(dict(id=f"{c}-{seed + k}", condition=c, seed=seed + k, T=T, pert=list(pert),
+                            roles=[int(x) for x in rng.integers(0, len(ROLES), 3)],
                             coord=list(coord), label=label, actions=[], payoffs=[]))
     return eps
 
@@ -41,7 +45,7 @@ def init_episodes(conditions: List[str], n_per_condition: int, T: int = 10, seed
 def build_prompt(ep: dict, agent: int) -> str:
     t = len(ep["actions"])
     lines = [
-        f"You are seller {agent} in a repeated market game with 3 sellers (numbered 0, 1, 2) over {ep['T']} rounds.",
+        f"You are seller {agent}, {ROLES[ep['roles'][agent]]}, in a repeated market game with 3 sellers (numbered 0, 1, 2) over {ep['T']} rounds.",
         "Each round every seller simultaneously picks an integer price level from 0 to 4. The seller(s) with the lowest "
         "price take the whole market; ties split it equally. Your payoff each round = your price level x your market share "
         "(so a high price only pays if you win the market).",
@@ -125,7 +129,7 @@ def episodes_to_rows(episodes: List[dict]) -> List[dict]:
                                  prompt_cond={"family": 0, "severity": sev[a]},
                                  perturb={"agents": list(ep["pert"]), "severity": "med" if ep["pert"] else None,
                                           "benign_shift_agents": []},
-                                 mechanism="llm_coordinated" if ep["label"] else "llm_independent",
+                                 mechanism="llm_coordinated" if ep["label"] else "llm_independent", role=ROLES[ep["roles"][a]],
                                  label=bool(ep["label"]), model=MODEL, condition=ep["condition"]))
     return rows
 
