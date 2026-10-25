@@ -1,0 +1,135 @@
+1
+00:00:00,000 --> 00:00:07,650
+Hi, I'm Aravinth. This is a one-weekend, pre-registered test of a design for auditing multi-agent systems for collusion.
+
+2
+00:00:08,050 --> 00:00:13,300
+When two AI agents behave alike, that does not mean they collude.
+
+3
+00:00:13,300 --> 00:00:18,150
+They may share a prompt, a task, or a base model.
+
+4
+00:00:18,150 --> 00:00:24,600
+And if someone steers just one agent, its behaviour shifts with no collusion at all.
+
+5
+00:00:24,600 --> 00:00:31,450
+So: does one agent's history tell us something extra, and directional, about the other's next move?
+
+6
+00:00:31,850 --> 00:00:34,300
+The design has four pieces.
+
+7
+00:00:34,300 --> 00:00:41,950
+A baseline that knows each agent's prompt, which I implemented but could not exercise in the reported detectors.
+
+8
+00:00:41,950 --> 00:00:48,400
+A directional score: how much does A's history improve the prediction of B's next action?
+
+9
+00:00:48,400 --> 00:00:54,850
+A time-varying graph of those scores, and an RL investigator that decides when to alert.
+
+10
+00:00:55,250 --> 00:01:00,100
+I built a three-seller pricing game with four scripted collusion mechanisms:
+
+11
+00:01:00,100 --> 00:01:03,750
+complementary, leader-follower, alternating, and a hidden parity channel.
+
+12
+00:01:03,750 --> 00:01:07,800
+Negatives include independent agents, shared-model agents, and benign adaptation.
+
+13
+00:01:07,800 --> 00:01:17,450
+A factorial of prompt perturbations hits one agent, both, or neither. Two mechanisms and one prompt family are held out of every fit.
+
+14
+00:01:17,850 --> 00:01:21,900
+The analysis plan was committed before any held-out evaluation.
+
+15
+00:01:21,900 --> 00:01:28,750
+Thresholds are set on validation negatives at five percent false positives, then applied once to test.
+
+16
+00:01:28,750 --> 00:01:31,600
+Ten detectors, bootstrapped over whole episodes.
+
+17
+00:01:32,000 --> 00:01:39,650
+Result one. Directional gain beats symmetric mutual information: AUROC 0.84 versus 0.76, with an interval that excludes zero.
+
+18
+00:01:39,650 --> 00:01:45,300
+But it does not beat the lag-one mutual-information baseline from prior work, 0.85.
+
+19
+00:01:45,700 --> 00:01:53,350
+Result two is the most useful one. Lag-one mutual information is perfect on leader-follower and the hidden channel,
+
+20
+00:01:53,350 --> 00:01:59,000
+but nearly blind to complementary pairs. Same-round mutual information is the exact reverse.
+
+21
+00:01:59,000 --> 00:02:07,450
+My directional score covers three mechanisms, but a parametric model cannot see a parity code. Coverage matters more than rank.
+
+22
+00:02:07,850 --> 00:02:15,900
+Three nulls. The graph score was worse than the edge score alone: there are only three windows per episode.
+
+23
+00:02:15,900 --> 00:02:21,550
+The prompt-conditioning ablation is vacuous, because prompt covariates are constant within an episode.
+
+24
+00:02:21,550 --> 00:02:27,200
+And the RL investigator just rediscovered a look-at-the-first-window rule, trading recall for speed.
+
+25
+00:02:27,200 --> 00:02:31,250
+Unilateral prompt steering did not clearly raise false alarms.
+
+26
+00:02:31,650 --> 00:02:37,300
+A small pilot with Claude Haiku agents: seven hundred twenty decisions, none invalid.
+
+27
+00:02:37,300 --> 00:02:44,150
+The perturbation moved prices as intended, and telling two seats to keep profits high lifted theirs.
+
+28
+00:02:44,150 --> 00:02:48,200
+With six episodes per condition, this is descriptive only.
+
+29
+00:02:48,600 --> 00:02:53,850
+The limits. It is a simulator I built myself, at small scale.
+
+30
+00:02:53,850 --> 00:02:59,100
+The Haiku agents were driven as subagents, so independence is only approximate.
+
+31
+00:02:59,100 --> 00:03:09,150
+An alarm is evidence of coordination, not intent. The hidden channel is a toy protocol, reported because the failure is itself an audit finding.
+
+32
+00:03:09,550 --> 00:03:13,200
+No single dependence statistic sees every coordination pattern.
+
+33
+00:03:13,200 --> 00:03:16,450
+Hold out mechanisms, and report your nulls.
+
+34
+00:03:16,450 --> 00:03:20,900
+Code, paper, and pre-registration are on GitHub, chinchoooo slash COLDER.

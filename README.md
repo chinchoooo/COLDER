@@ -1,9 +1,9 @@
-# COLDER — prompt-conditioned directional evidence for collusion auditing (APTG-RL, sprint slice)
+# COLDER — directional predictive evidence for collusion auditing (APTG-RL, sprint slice)
 
 Submission to the **Apart Research AI Collusion Research Sprint** (23–25 Oct 2026), Track 2 (Detection and Audit of Collusion).
 Author: Aravinth K (independent, solo). Paper: [`paper/main.pdf`](paper/main.pdf) (LaTeX source in `paper/`).
 
-A controlled, pre-registered test of the APTG-RL design: a prompt-conditioned baseline, a directional predictive-gain statistic between
+A controlled, pre-registered test of the APTG-RL design: a directional predictive-gain statistic between
 agents, a time-varying directed graph, and an RL investigator, compared with the information-theoretic net-influence baseline and others,
 on a 3-seller repeated pricing game with four scripted collusion mechanisms, benign / shared-model negatives and a perturbation factorial
 (C0–C6), plus a small pilot with Claude Haiku 4.5 agents. **Headline (see the paper for numbers, CIs and caveats):** directional gain beats
@@ -43,6 +43,8 @@ The Haiku pilot used no API key: `experiments/run_llm.py init|write|apply|export
 responses; a controller dispatched Haiku subagents on the chunks (see paper Section 3 and Appendix C for the protocol and prompt).
 
 ## Honest limits (full list in the paper)
+The prompt-conditioned baseline (`src/aptg/calibration.py`) is implemented and unit-tested but is **not wired into the reported detectors**, so the
+prompt-conditioning hypothesis (H2) is not tested and the out-of-calibration gate never fires (found in the final code review).
 Simulator-only; scripted mechanisms are the author's construction; fewer seeds than planned (10/12/20/10 per cell); 30 permutations per edge;
 max-statistic correction instead of BH (see `DEVIATIONS.md`); prompt-covariate ablation is vacuous for per-episode estimation; the Haiku pilot is
 6 episodes per condition and its agents share subagent contexts. No claims about real deployed agents or about intent.

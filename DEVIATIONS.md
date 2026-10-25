@@ -17,3 +17,13 @@
    `B3_noprompt` (prompt covariates removed) are additional variants added for H1/H2.
 6. **B8 stream:** per window, Bernoulli indicator of "any calibrated, significant edge"; LLR with p0 = 0.05, p1 = 0.5; SPRT alpha = 0.05, beta = 0.2.
 7. **Ablation 'no prompt-conditioned baseline'** is implemented for the episode-level B3 score only (not the full APTG graph), for compute reasons.
+
+## Added after the final code review (before submission; results unchanged, wording corrected)
+8. **The prompt-conditioned baseline is not used by the reported detectors.** `calibration.py` is implemented and tested, but the estimator takes prompt
+   covariates that are constant within an episode (inert) and `build_graph(..., baseline=None)` marks every episode calibrated, so the out-of-calibration gate never
+   fires and H2 is untested. Title, abstract and Results were corrected to say so.
+9. **RL selection used all validation positives**, including held-out mechanisms (the plan excluded them from fits). The selected PPO policy equals a first-window rule
+   either way. The first-window comparator itself is post hoc (`experiments/rl_diagnostics.py`).
+10. **Unplanned exclusion:** validation episode `benign_adaptation-C0-s61-f1` has no window record (lost in a mid-run restart); B8 scores it 0 and RL validation has 275 episodes.
+11. **Equal-FPR caveat:** realised test FPRs at the shared 5% validation target differ across detectors (B1 0.067, B3 0.043, APTG 0.037, B8 0.020); AUROC is unaffected.
+12. Block-permutation seeds are shared across episodes; max-statistic draws are independent per edge (conservative in a 60-test null check).

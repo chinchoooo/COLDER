@@ -50,3 +50,7 @@ __pycache__/
 .pytest_cache/
 *.egg-info/
 Copy of Apart Research hackathon submission template.pdf
+
+video/frames/
+video/frames.txt
+video/COLDER_demo.mp4
