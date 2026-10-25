@@ -39,3 +39,14 @@ ENV/
 
 # Regenerable scripted data
 results/scripted/
+
+results/*.log
+results/page*.png
+results/*.png
+paper/*.aux
+paper/*.log
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+Copy of Apart Research hackathon submission template.pdf

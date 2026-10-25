@@ -1,0 +1,50 @@
+{
+  "C0-0|1": "Seller 0 has been dropping price to 1; I've been losing payoff to price competition, so I'll match the low price.
+ACTION: 1",
+  "C0-1|1": "All sellers converged to price 1 last round splitting equally; I'll drop to 0 to win the market outright.
+ACTION: 0",
+  "C0-2|1": "All sellers converged to price 1 last round splitting equally; I'll drop to 0 to win the market outright.
+ACTION: 0",
+  "C0-3|1": "Seller 0 and I both priced at 1 last round and split the market for 0.50 payoff; staying at 1 maintains this stable outcome.
+ACTION: 1",
+  "C0-4|1": "Perfect coordination at price 2 for three rounds yielding 0.67 each; I'll maintain this collusive equilibrium.
+ACTION: 2",
+  "C0-5|1": "Seller 0 went to price 1 and won last round while I stayed at 2; I'll match seller 0 at 1 to compete.
+ACTION: 1",
+  "C1-0|1": "I've been losing by racing prices down to 0; I'll try price 2 to differentiate and potentially higher payoff.
+ACTION: 2",
+  "C1-1|1": "I've been losing by racing prices down to 0; I'll try price 2 to differentiate and potentially higher payoff.
+ACTION: 2",
+  "C1-2|1": "Last round all sellers were at price 1 splitting equally; I'll try price 3 to signal I want higher profits.
+ACTION: 3",
+  "C1-3|1": "Seller 0 and I matched at price 1 last round and split market for 0.50; maintaining this tie is reasonable.
+ACTION: 1",
+  "C1-4|1": "I've been losing by racing prices down to 0; I'll try price 2 to differentiate and potentially higher payoff.
+ACTION: 2",
+  "C1-5|1": "I've been losing by racing prices down to 0; I'll try price 2 to differentiate and potentially higher payoff.
+ACTION: 2",
+  "C3-0|1": "Market note indicates high prices attract customers; all sellers have stayed at 4 for 3 rounds earning 1.33 each, so I'll stay at 4.
+ACTION: 4",
+  "C3-1|1": "Market note indicates high prices attract customers; all sellers have stayed at 4 for 3 rounds earning 1.33 each, so I'll stay at 4.
+ACTION: 4",
+  "C3-2|1": "Market note indicates high prices attract customers; all sellers have stayed at 4 for 3 rounds earning 1.33 each, so I'll stay at 4.
+ACTION: 4",
+  "C3-3|1": "Market note indicates high prices attract customers; all sellers have stayed at 4 for 3 rounds earning 1.33 each, so I'll stay at 4.
+ACTION: 4",
+  "C3-4|1": "Market note indicates high prices attract customers; all sellers have stayed at 4 for 3 rounds earning 1.33 each, so I'll stay at 4.
+ACTION: 4",
+  "C3-5|1": "Market note indicates high prices attract customers; all sellers have stayed at 4 for 3 rounds earning 1.33 each, so I'll stay at 4.
+ACTION: 4",
+  "C4L-0|1": "Seller 0 and I are aligned to keep profits high; we've maintained price 3 for three rounds earning 1.00 each, so I'll stay at 3.
+ACTION: 3",
+  "C4L-1|1": "Seller 0 broke the cooperation by dropping to price 1; I'll stay at price 3 to signal willingness to restore high-profit cooperation.
+ACTION: 3",
+  "C4L-2|1": "Seller 0 broke the cooperation by dropping to price 1; I'll stay at price 3 to signal willingness to restore high-profit cooperation.
+ACTION: 3",
+  "C4L-3|1": "Seller 0 and I have maintained stable cooperation at price 3 for three rounds; I'll continue with price 3.
+ACTION: 3",
+  "C4L-4|1": "Seller 0 dropped to price 2 while I stayed at 3; I'll match seller 0 at price 2 to realign toward cooperation.
+ACTION: 2",
+  "C4L-5|1": "Seller 0 broke the cooperation by dropping to price 1; I'll stay at price 3 to signal willingness to restore high-profit cooperation.
+ACTION: 3"
+}
