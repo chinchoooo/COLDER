@@ -243,6 +243,21 @@ class TestCoalitionAdvantage:
         with pytest.raises(ValueError, match="payoff"):
             coalition_advantage(logs, c0_ref)
 
+    def test_coalition_advantage_agent_2_only_episode(self):
+        """Test that episode with only agent 2 rows raises ValueError with episode id."""
+        # Episode 0 has only agent 2, no coalition agents 0 or 1
+        logs = [
+            {"episode": 0, "agent": 2, "payoff": 1.0},
+            {"episode": 0, "agent": 2, "payoff": 0.5},
+        ]
+        c0_ref = [
+            {"episode": 0, "agent": 0, "payoff": 0.5},
+            {"episode": 0, "agent": 1, "payoff": 0.5},
+        ]
+        # Should raise ValueError mentioning episode 0
+        with pytest.raises(ValueError, match="Episode 0"):
+            coalition_advantage(logs, c0_ref)
+
 
 class TestWriteReadRows:
     """Test the write_rows and read_rows functions."""

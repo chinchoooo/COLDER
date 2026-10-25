@@ -100,17 +100,18 @@ def coalition_advantage(logs: List[Dict[str, Any]], c0_ref: List[Dict[str, Any]]
                 raise ValueError(f"Row {i} missing required key: {e}")
 
             if episode not in episodes:
-                episodes[episode] = {0: 0.0, 1: 0.0}
+                episodes[episode] = {0: 0.0, 1: 0.0, "has_coalition": False}
 
             # Sum across all timesteps (rows) for each agent per episode
             if agent in [0, 1]:
                 episodes[episode][agent] += payoff
+                episodes[episode]["has_coalition"] = True
 
-        # Check that each episode has coalition rows (both agents present with non-zero contributions)
+        # Check that each episode has coalition rows
         coalition_totals = []
         for episode, agents_dict in episodes.items():
-            # Check that we have rows for coalition agents
-            # Allow zero payoff, but structure must exist
+            if not agents_dict["has_coalition"]:
+                raise ValueError(f"Episode {episode} has no rows for coalition agents 0 or 1")
             total = agents_dict[0] + agents_dict[1]
             coalition_totals.append(total)
 
