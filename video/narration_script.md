@@ -50,9 +50,9 @@ Ten detectors, bootstrapped over whole episodes.
 
 ## 6. Directional beats symmetric, not lag-one
 
-Result one. Directional gain beats symmetric mutual information: AUROC 0.84 versus 0.76, with an interval that excludes zero.
+Result one. A directional gain score that uses both same-round and lagged information beats symmetric mutual information: AUROC 0.84 versus 0.76.
 
-But it does not beat the lag-one mutual-information baseline from prior work, 0.85.
+But it does not beat the lag-one mutual-information baseline from prior work, 0.85. And its strictly lagged part alone, 0.70, does not beat symmetric mutual information.
 
 
 ## 7. Every detector is mechanism-specific

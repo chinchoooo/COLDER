@@ -64,9 +64,10 @@ SCENES = [
                 "Thresholds are set on validation negatives at five percent false positives, then applied once to test.",
                 "Ten detectors, bootstrapped over whole episodes."]),
     dict(key="auroc", eyebrow="RESULT 1", title="Directional beats symmetric, not lag-one", fig="fig_auroc.png",
-         lines=[f"Result one. Directional gain beats symmetric mutual information: AUROC {au('B3'):.2f} versus {au('B2'):.2f}, "
-                f"with an interval that excludes zero.",
-                f"But it does not beat the lag-one mutual-information baseline from prior work, {au('B1'):.2f}."]),
+         lines=[f"Result one. A directional gain score that uses both same-round and lagged information beats symmetric mutual information: "
+                f"AUROC {au('B3'):.2f} versus {au('B2'):.2f}.",
+                f"But it does not beat the lag-one mutual-information baseline from prior work, {au('B1'):.2f}. And its strictly lagged part alone, "
+                f"{au('B3_temporal'):.2f}, does not beat symmetric mutual information."]),
     dict(key="mech", eyebrow="RESULT 2", title="Every detector is mechanism-specific", fig="fig_mechanism.png",
          lines=["Result two is the most useful one. Lag-one mutual information is perfect on leader-follower and the hidden channel,",
                 "but nearly blind to complementary pairs. Same-round mutual information is the exact reverse.",
