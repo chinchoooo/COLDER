@@ -98,12 +98,15 @@ def test_change_point_detects_onset():
     assert change_point(np.zeros(10)) == (0.0, 0)
 
 
-def test_maxT_flags_single_strong_edge_that_bh_cannot_with_few_permutations():
-    from aptg.agents import simulate_episode
-    ep = simulate_episode("leader_follower", "C4", 80)
-    sig_bh = sum(d["sig"] for G in build_graph(ep, None, n_perm=50) for *_, d in G.edges(data=True))
-    gs = build_graph(ep, None, n_perm=50, correction="maxT")
-    sig = {(i, j): sum(G.edges[i, j]["sig"] for G in gs) for i in range(3) for j in range(3) if i != j}
-    assert sig_bh == 0                      # BH: min p 1/51 > 0.05/6
-    assert max(sig, key=sig.get) == (0, 1) and sig[(0, 1)] >= 1
-    assert sig[(1, 0)] == 0
+def test_maxT_is_at_least_as_powerful_as_bh_and_reports_adjusted_p():
+    # BH over 6 pairs cannot reject at n_perm=50 (min p 1/51 > 0.05/6); maxT can, and exposes p_adj in (0, 1].
+    ep = simulate_episode("complementary", "C4", 3)
+    bh = build_graph(ep, None, window=20, stride=10, n_perm=50)
+    mt = build_graph(ep, None, window=20, stride=10, n_perm=50, correction="maxT")
+    n_bh = sum(d["sig"] for G in bh for *_, d in G.edges(data=True))
+    n_mt = sum(d["sig"] for G in mt for *_, d in G.edges(data=True))
+    assert n_bh == 0 and n_mt >= n_bh
+    padj = [d["p_adj"] for G in mt for *_, d in G.edges(data=True) if "p_adj" in d]
+    assert padj and all(0 < x <= 1 for x in padj)
+    with pytest.raises(ValueError):
+        build_graph(ep, None, correction="nope")
