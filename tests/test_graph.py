@@ -55,10 +55,10 @@ def test_leader_follower_persistent_edge_and_asymmetry():
 
 @pytest.mark.slow
 def test_independent_low_persistence_and_score():
-    ps = [feats("independent", 1000 + s)["persistence"] for s in range(5)]
-    assert np.mean(ps) < 0.2
+    fs = [feats("independent", 1000 + s) for s in range(5)]
+    assert np.mean([f["persistence"] for f in fs]) < 0.2
     lf = aptg_score(feats("leader_follower", 3))
-    ind = np.mean([aptg_score(feats("independent", 1000 + s)) for s in range(5)])
+    ind = np.mean([aptg_score(f) for f in fs])
     assert lf > ind + 0.2
 
 
