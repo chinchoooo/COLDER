@@ -47,89 +47,89 @@ complementary, leader-follower, alternating, and a hidden parity channel.
 Negatives include independent agents, shared-model agents, and benign adaptation.
 
 13
-00:01:07,800 --> 00:01:17,450
-A factorial of prompt perturbations hits one agent, both, or neither. Two mechanisms and one prompt family are held out of every fit.
+00:01:07,800 --> 00:01:19,450
+Seven controlled conditions perturb the instructions of one agent, both, or neither, with and without collusion. Two mechanisms and one prompt family are held out of every fit.
 
 14
-00:01:17,850 --> 00:01:21,900
+00:01:19,850 --> 00:01:23,900
 The analysis plan was committed before any held-out evaluation.
 
 15
-00:01:21,900 --> 00:01:28,750
+00:01:23,900 --> 00:01:30,750
 Thresholds are set on validation negatives at five percent false positives, then applied once to test.
 
 16
-00:01:28,750 --> 00:01:31,600
+00:01:30,750 --> 00:01:33,600
 Ten detectors, bootstrapped over whole episodes.
 
 17
-00:01:32,000 --> 00:01:40,850
+00:01:34,000 --> 00:01:42,850
 Result one. A directional gain score that uses both same-round and lagged information beats symmetric mutual information: AUROC 0.84 versus 0.76.
 
 18
-00:01:40,850 --> 00:01:51,700
-But it does not beat the lag-one mutual-information baseline from prior work, 0.85. And its strictly lagged part alone, 0.70, does not beat symmetric mutual information.
+00:01:42,850 --> 00:01:54,500
+But it does not beat the lag-one mutual-information baseline from prior work, 0.85. And its strictly lagged part alone, 0.70, shows no clear advantage over symmetric mutual information.
 
 19
-00:01:52,100 --> 00:01:59,750
+00:01:54,900 --> 00:02:02,550
 Result two is the most useful one. Lag-one mutual information is perfect on leader-follower and the hidden channel,
 
 20
-00:01:59,750 --> 00:02:05,400
+00:02:02,550 --> 00:02:08,200
 but nearly blind to complementary pairs. Same-round mutual information is the exact reverse.
 
 21
-00:02:05,400 --> 00:02:13,850
+00:02:08,200 --> 00:02:16,650
 My directional score covers three mechanisms, but a parametric model cannot see a parity code. Coverage matters more than rank.
 
 22
-00:02:14,250 --> 00:02:22,300
+00:02:17,050 --> 00:02:25,100
 Three nulls. The graph score was worse than the edge score alone: there are only three windows per episode.
 
 23
-00:02:22,300 --> 00:02:27,950
+00:02:25,100 --> 00:02:30,750
 The prompt-conditioning ablation is vacuous, because prompt covariates are constant within an episode.
 
 24
-00:02:27,950 --> 00:02:33,600
+00:02:30,750 --> 00:02:36,400
 And the RL investigator just rediscovered a look-at-the-first-window rule, trading recall for speed.
 
 25
-00:02:33,600 --> 00:02:37,650
+00:02:36,400 --> 00:02:40,450
 Unilateral prompt steering did not clearly raise false alarms.
 
 26
-00:02:38,050 --> 00:02:43,700
+00:02:40,850 --> 00:02:46,500
 A small pilot with Claude Haiku agents: seven hundred twenty decisions, none invalid.
 
 27
-00:02:43,700 --> 00:02:50,550
+00:02:46,500 --> 00:02:53,350
 The perturbation moved prices as intended, and telling two seats to keep profits high lifted theirs.
 
 28
-00:02:50,550 --> 00:02:54,600
+00:02:53,350 --> 00:02:57,400
 With six episodes per condition, this is descriptive only.
 
 29
-00:02:55,000 --> 00:03:00,250
+00:02:57,800 --> 00:03:03,050
 The limits. It is a simulator I built myself, at small scale.
 
 30
-00:03:00,250 --> 00:03:05,500
+00:03:03,050 --> 00:03:08,300
 The Haiku agents were driven as subagents, so independence is only approximate.
 
 31
-00:03:05,500 --> 00:03:15,550
+00:03:08,300 --> 00:03:18,350
 An alarm is evidence of coordination, not intent. The hidden channel is a toy protocol, reported because the failure is itself an audit finding.
 
 32
-00:03:15,950 --> 00:03:19,600
+00:03:18,750 --> 00:03:22,400
 No single dependence statistic sees every coordination pattern.
 
 33
-00:03:19,600 --> 00:03:22,850
+00:03:22,400 --> 00:03:25,650
 Hold out mechanisms, and report your nulls.
 
 34
-00:03:22,850 --> 00:03:27,300
+00:03:25,650 --> 00:03:30,100
 Code, paper, and pre-registration are on GitHub, chinchoooo slash COLDER.

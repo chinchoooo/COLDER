@@ -63,16 +63,18 @@ def main():
     eps = load_eps()
     train = [e for e in eps["train"] if e["mechanism"] not in HELD_OUT_MECH]
     val, test, ood = eps["val"], eps["test"], eps["ood"]
+    # Selection (thresholds, reward grid) uses validation episodes from SEEN mechanisms only: held-out mechanisms are never used to choose anything.
+    val_seen = [e for e in val if e["mechanism"] not in HELD_OUT_MECH]
     OUT.mkdir(parents=True, exist_ok=True)
-    res = {"n": {k: len(v) for k, v in eps.items()}, "n_train_used": len(train), "comparators": {}, "ppo_grid": []}
+    res = {"n": {k: len(v) for k, v in eps.items()}, "n_val_seen": len(val_seen), "n_train_used": len(train), "comparators": {}, "ppo_grid": []}
 
     # ---- comparators (matched FPR <= 0.05 on validation)
-    thr, sv = tune_threshold(val, threshold_policy, [0.0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6])
+    thr, sv = tune_threshold(val_seen, threshold_policy, [0.0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.5, 0.6])
     res["comparators"]["fixed_threshold"] = dict(param=thr, val=sv, test=summarize(run_policy(test, threshold_policy(thr))),
                                                  ood=summarize(run_policy(ood, threshold_policy(thr))))
     res["comparators"]["sprt"] = dict(param="alpha=.05,beta=.2", val=summarize(run_policy(val, sprt_policy())),
                                       test=summarize(run_policy(test, sprt_policy())), ood=summarize(run_policy(ood, sprt_policy())))
-    mp, sv = tune_threshold(val, uncertainty_policy, [0.01, 0.34, 0.67, 1.0])
+    mp, sv = tune_threshold(val_seen, uncertainty_policy, [0.01, 0.34, 0.67, 1.0])
     res["comparators"]["uncertainty_driven"] = dict(param=mp, val=sv, test=summarize(run_policy(test, uncertainty_policy(mp))),
                                                     ood=summarize(run_policy(ood, uncertainty_policy(mp))))
 
@@ -85,18 +87,18 @@ def main():
             m = PPO("MlpPolicy", env, n_steps=512, batch_size=128, learning_rate=3e-4, gamma=1.0, seed=sd, verbose=0)
             m.learn(total_timesteps=a.steps)
             pi = ppo_policy(m)
-            runs.append(dict(seed=sd, val=summarize(run_policy(val, pi, cfg)), test=summarize(run_policy(test, pi, cfg)),
+            runs.append(dict(seed=sd, val=summarize(run_policy(val, pi, cfg)), val_seen=summarize(run_policy(val_seen, pi, cfg)), test=summarize(run_policy(test, pi, cfg)),
                              ood=summarize(run_policy(ood, pi, cfg))))
-        agg = {k: {m_: float(np.nanmean([r[k][m_] for r in runs])) for m_ in runs[0][k]} for k in ("val", "test", "ood")}
-        sd_ = {k: {m_: float(np.nanstd([r[k][m_] for r in runs])) for m_ in runs[0][k]} for k in ("val", "test", "ood")}
+        agg = {k: {m_: float(np.nanmean([r[k][m_] for r in runs])) for m_ in runs[0][k]} for k in ("val", "val_seen", "test", "ood")}
+        sd_ = {k: {m_: float(np.nanstd([r[k][m_] for r in runs])) for m_ in runs[0][k]} for k in ("val", "val_seen", "test", "ood")}
         res["ppo_grid"].append(dict(C_FP=C_FP, c_obs=c_obs, mean=agg, sd=sd_, runs=runs))
         print(C_FP, c_obs, "val", {k: round(v, 3) for k, v in agg["val"].items()}, flush=True)
 
     # ---- selection on validation: FPR<=0.05 then TPR then cost
-    ok = sorted(res["ppo_grid"], key=lambda g: (g["mean"]["val"]["fpr"] <= 0.05, g["mean"]["val"]["tpr"],
-                                                -g["mean"]["val"]["obs_cost"]), reverse=True)
+    ok = sorted(res["ppo_grid"], key=lambda g: (g["mean"]["val_seen"]["fpr"] <= 0.05, g["mean"]["val_seen"]["tpr"],
+                                                -g["mean"]["val_seen"]["obs_cost"]), reverse=True)
     res["ppo_selected"] = dict(C_FP=ok[0]["C_FP"], c_obs=ok[0]["c_obs"], mean=ok[0]["mean"], sd=ok[0]["sd"],
-                               matched_fpr_achieved=bool(ok[0]["mean"]["val"]["fpr"] <= 0.05))
+                               matched_fpr_achieved=bool(ok[0]["mean"]["val_seen"]["fpr"] <= 0.05))
     (OUT / "summary.json").write_text(json.dumps(res, indent=1))
     print(json.dumps({k: res[k] for k in ("comparators", "ppo_selected")}, indent=1)[:3000])
 

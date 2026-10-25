@@ -36,7 +36,7 @@ complementary, leader-follower, alternating, and a hidden parity channel.
 
 Negatives include independent agents, shared-model agents, and benign adaptation.
 
-A factorial of prompt perturbations hits one agent, both, or neither. Two mechanisms and one prompt family are held out of every fit.
+Seven controlled conditions perturb the instructions of one agent, both, or neither, with and without collusion. Two mechanisms and one prompt family are held out of every fit.
 
 
 ## 5. Pre-registered before any held-out data
@@ -52,7 +52,7 @@ Ten detectors, bootstrapped over whole episodes.
 
 Result one. A directional gain score that uses both same-round and lagged information beats symmetric mutual information: AUROC 0.84 versus 0.76.
 
-But it does not beat the lag-one mutual-information baseline from prior work, 0.85. And its strictly lagged part alone, 0.70, does not beat symmetric mutual information.
+But it does not beat the lag-one mutual-information baseline from prior work, 0.85. And its strictly lagged part alone, 0.70, shows no clear advantage over symmetric mutual information.
 
 
 ## 7. Every detector is mechanism-specific

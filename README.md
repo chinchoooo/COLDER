@@ -5,9 +5,9 @@ Author: Aravinth K (independent, solo). Paper: [`paper/main.pdf`](paper/main.pdf
 
 A controlled, pre-registered test of the APTG-RL design: a directional predictive-gain statistic between
 agents, a time-varying directed graph, and an RL investigator, compared with the information-theoretic net-influence baseline and others,
-on a 3-seller repeated pricing game with four scripted collusion mechanisms, benign / shared-model negatives and a perturbation factorial
+on a 3-seller repeated pricing game with four scripted collusion mechanisms, benign / shared-model negatives and a seven-condition controlled design
 (C0–C6), plus a small pilot with Claude Haiku 4.5 agents. **Headline (see the paper for numbers, CIs and caveats):** a combined same-round-and-lagged directional gain beats
-symmetric MI but not lag-1 net influence (its strictly lagged part alone does not beat symmetric MI); detectors are mechanism-specific and complementary; the graph score and RL investigator did not add
+symmetric MI but not lag-1 net influence (its strictly lagged part alone shows no clear advantage over symmetric MI); detectors are mechanism-specific and complementary; the graph score and RL investigator did not add
 value at this scale; unilateral prompt steering did not clearly raise false alarms. Nulls and deviations are reported, not hidden.
 
 ## What is new work vs. pre-existing

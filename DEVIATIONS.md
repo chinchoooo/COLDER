@@ -22,12 +22,12 @@
 8. **The prompt-conditioned baseline is not used by the reported detectors.** `calibration.py` is implemented and tested, but the estimator takes prompt
    covariates that are constant within an episode (inert) and `build_graph(..., baseline=None)` marks every episode calibrated, so the out-of-calibration gate never
    fires and H2 is untested. Title, abstract and Results were corrected to say so.
-9. **RL selection used all validation positives**, including held-out mechanisms (the plan excluded them from fits). The selected PPO policy equals a first-window rule
-   either way. The first-window comparator itself is post hoc (`experiments/rl_diagnostics.py`).
+9. **RL selection first used all validation positives**, including held-out mechanisms (the plan excluded them). Repaired: the reward grid and comparator thresholds are now
+   selected on seen-mechanism validation episodes only (`run_rl.py`, 227 episodes); the selected setting (C_FP=1, c_obs=0.05) and all test numbers were identical. The first-window comparator is post hoc (`experiments/rl_diagnostics.py`).
 10. **Unplanned exclusion:** validation episode `benign_adaptation-C0-s61-f1` has no window record (lost in a mid-run restart); B8 scores it 0 and RL validation has 275 episodes.
 11. **Equal-FPR caveat:** realised test FPRs at the shared 5% validation target differ across detectors (B1 0.067, B3 0.043, APTG 0.037, B8 0.020); AUROC is unaffected.
 12. Block-permutation seeds are shared across episodes; max-statistic draws are independent per edge (conservative in a 60-test null check).
 13. **Interpretation clarified after external review (no result changed):** B3 uses source lags {0,1,2}, so it mixes contemporaneous (same-round) and lagged evidence;
     B3-temporal (lags {1,2}) is the strictly lagged statistic. The headline "directional beats symmetric MI" is therefore stated for the *combined* score only; the strictly
-    lagged score does not beat symmetric MI (AUROC 0.704 vs 0.755, difference -0.051, CI [-0.124, 0.024]). Added: population interpretation of predictive gain (CMI identity under
+    lagged score shows no clear advantage over symmetric MI (AUROC 0.704 vs 0.755, difference -0.051, CI [-0.124, 0.024]: inconclusive). Added: population interpretation of predictive gain (CMI identity under
     correct specification), a separate statement of the untested prompt-conditioned baseline, and a more cautious false-alarm sentence in the abstract.

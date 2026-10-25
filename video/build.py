@@ -58,7 +58,7 @@ SCENES = [
          lines=["I built a three-seller pricing game with four scripted collusion mechanisms:",
                 "complementary, leader-follower, alternating, and a hidden parity channel.",
                 "Negatives include independent agents, shared-model agents, and benign adaptation.",
-                "A factorial of prompt perturbations hits one agent, both, or neither. Two mechanisms and one prompt family are held out of every fit."]),
+                "Seven controlled conditions perturb the instructions of one agent, both, or neither, with and without collusion. Two mechanisms and one prompt family are held out of every fit."]),
     dict(key="protocol", eyebrow="THE PROTOCOL", title="Pre-registered before any held-out data", fig="diagram_protocol",
          lines=["The analysis plan was committed before any held-out evaluation.",
                 "Thresholds are set on validation negatives at five percent false positives, then applied once to test.",
@@ -67,7 +67,7 @@ SCENES = [
          lines=[f"Result one. A directional gain score that uses both same-round and lagged information beats symmetric mutual information: "
                 f"AUROC {au('B3'):.2f} versus {au('B2'):.2f}.",
                 f"But it does not beat the lag-one mutual-information baseline from prior work, {au('B1'):.2f}. And its strictly lagged part alone, "
-                f"{au('B3_temporal'):.2f}, does not beat symmetric mutual information."]),
+                f"{au('B3_temporal'):.2f}, shows no clear advantage over symmetric mutual information."]),
     dict(key="mech", eyebrow="RESULT 2", title="Every detector is mechanism-specific", fig="fig_mechanism.png",
          lines=["Result two is the most useful one. Lag-one mutual information is perfect on leader-follower and the hidden channel,",
                 "but nearly blind to complementary pairs. Same-round mutual information is the exact reverse.",
