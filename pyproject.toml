@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aptg"
+version = "0.1.0"
+description = "APTG-RL: Algorithmic Pricing with Tactical Gameplay and Reinforcement Learning"
+authors = [
+    {name = "Aravinth K", email = "aravinth3007k@gmail.com"}
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "scikit-learn",
+    "networkx",
+    "gymnasium",
+    "stable-baselines3",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.setuptools]
+packages = ["aptg"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
