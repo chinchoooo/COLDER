@@ -9,8 +9,11 @@ explicit chat channel change that, and can auditors detect collusion when the ch
 
 ## Contributions (to be stated honestly in the paper)
 1. Controlled 2x2 measurement (chat on/off x neutral/profit-maximising prompt) of the collusion index.
-2. Detector comparison on the same logs: price-only heuristic, LLM-judge on full transcript, LLM-judge on actions only.
-3. Positive and negative controls for both the environment and detectors (scripted agents), so detector numbers are interpretable.
+2. Detector comparison on the same logs: price-only heuristic, directional predictive-gain detector (APTG-lite), LLM-judge on full transcript, LLM-judge on actions only.
+3. A directional, prompt-conditioned detector ("APTG-lite", from the user's own APTG-RL proposal PDFs in this folder): cross-validated
+   predictive gain of seller A's price history on seller B's next price beyond B's own history, compared across prompt conditions.
+   The RL investigator, adversarial temporal graphs and multi-week plan in those PDFs are explicitly OUT of scope (listed as future work).
+4. Positive and negative controls for both the environment and detectors (scripted agents), so detector numbers are interpretable.
 Novelty claim is deliberately modest: prior work (e.g. Fish et al. 2024, Calvano et al. 2020) already shows LLM/RL pricing collusion;
 the new part is the paired detection evaluation across tacit vs explicit conditions. Related work must be checked against real sources
 before citing; no reference is included unless verified.
@@ -36,8 +39,11 @@ generated from results files by a script.
 ## Deliverables
 - `src/` env, agents, metrics, detectors; `tests/` env maths + metrics + mock-agent smoke test (run before any API spend).
 - `experiments/`, `results/` (raw JSONL, summary CSV), `README.md` (marks all code as written during the sprint; no preexisting code).
-- `paper/`: LaTeX using the **official template from the sprint Guidelines tab** (link not yet obtained - needed from user), <=8 pages
-  before references/appendices, abstract 150-250 words, authors+affiliations, required appendix
+- `paper/`: LaTeX reproducing the official template in this folder ("Copy of Apart Research hackathon submission template.pdf":
+  Title/authors/"With Apart Research", Abstract, 1 Introduction, 2 Related Work, 3 Methods, 4 Results, 5 Discussion and Limitations,
+  6 Conclusion, Code and Data, Author Contributions, References, Appendix, LLM Usage Statement; footnote "Research conducted at the
+  AI Collusion Research Sprint, October 2026"). Template recommends ~4 pages, hard cap is 8 before references/appendices; target 6-7.
+  Guidance text and info box removed. Solo author.  abstract 150-250 words, authors+affiliations, required appendix
   "Limitations and Dual-Use / Ethical Considerations", positive control reported in Results, variance/seeds/baselines reported.
 - `video/`: 3-5 min explainer from rendered chart frames + captions via ffmpeg, per the user's editing brief; verified after render.
 - `submission.md`: ready-to-paste content for every Apart form field.
@@ -45,4 +51,7 @@ generated from results files by a script.
 ## Out of scope / constraints
 - No fabricated data or references. AI-assistance disclosed in the paper. I cannot submit the form; user pastes `submission.md`.
 - GitHub repo creation/push only after user confirms account and repo name.
-- Needs from user: ANTHROPIC_API_KEY, official template, team name/members/location, GitHub repo name.
+- Solo author. GitHub repo name: COLDER (push only after user confirms account/visibility).
+- Blockers found: no ANTHROPIC_API_KEY in env; no LaTeX install (pdflatex/xelatex/latexmk absent) -> need user OK to install Tectonic or MiKTeX;
+  Python 3.13 has numpy/scipy/sklearn/matplotlib/pypdf but not the `anthropic` SDK (pip install needed); ffmpeg and gh are present.
+- Related work: references in the APTG-RL PDFs are candidate citations only; each must be verified against the real source before use.
