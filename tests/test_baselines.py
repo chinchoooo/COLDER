@@ -8,10 +8,12 @@ from aptg.edges import block_perm_pvalue
 
 
 def ep_from(a, name="x"):
+    from aptg.env import play_round
     rows = []
     for t in range(len(a)):
+        pay = play_round([int(v) for v in a[t]])
         for i in range(3):
-            rows.append({"episode": name, "t": t, "agent": i, "action": int(a[t][i]), "payoff": 0.0,
+            rows.append({"episode": name, "t": t, "agent": i, "action": int(a[t][i]), "payoff": float(pay[i]),
                          "prompt_cond": {"family": 0, "severity": 0},
                          "perturb": {"agents": [], "severity": None, "benign_shift_agents": []},
                          "mechanism": "x", "label": False, "model": "scripted"})

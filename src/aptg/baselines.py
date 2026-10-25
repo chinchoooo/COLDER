@@ -100,3 +100,113 @@ def symmetric_mi_B2(ep, lag: int = 0, bias_correct: bool = True) -> np.ndarray:
     S = 0.5 * (M + M.T)
     np.fill_diagonal(S, np.nan)
     return S
+
+
+# =========================================================== Task 6 baselines
+FEATURE_KEYS = ("persistence", "run_frac", "reciprocity", "D", "S", "A",
+                "motif_excess", "motif_z", "change_point", "frac_calibrated")
+
+
+def action_similarity_B5(ep, i: int = 0, j: int = 1, lag: int = 0) -> float:
+    """B5: chance-corrected action similarity (Cohen's kappa) between a_i[t] and a_j[t+lag].
+
+    kappa = (p_o - p_e) / (1 - p_e), p_e from the two marginals; 1 = identical
+    actions, ~0 independent, <= 0 for complementary (anti-correlated) play.  Pooled
+    over a list of episodes.  Returns 0.0 when undefined (a constant marginal).
+    Weak by design: sees only same-round (or fixed-lag) equality, no conditioning.
+    """
+    arrs = [_actions(e) for e in _episodes(ep)]
+    x = np.concatenate([a[:len(a) - lag, i] for a in arrs])
+    y = np.concatenate([a[lag:, j] for a in arrs])
+    if len(x) == 0:
+        return 0.0
+    po = float(np.mean(x == y))
+    px = np.bincount(x, minlength=N_ACT) / len(x)
+    py = np.bincount(y, minlength=N_ACT) / len(y)
+    pe = float(px @ py)
+    if pe >= 1.0 - 1e-12:
+        return 0.0
+    return float((po - pe) / (1.0 - pe))
+
+
+def regret_B6(ep, c0_ref) -> float:
+    """B6: outcome-based coalition advantage of ``ep`` over the clean reference ``c0_ref``.
+
+    Mean total payoff of agents 0 and 1 per episode minus the same for c0_ref
+    (aptg.env.coalition_advantage).  Positive = coalition earns more than under the
+    independent reference.  Accepts one episode or a list of episodes for either
+    argument.
+    """
+    from aptg.env import coalition_advantage
+
+    def flat(x):
+        return [r for e in _episodes(x) for r in e]
+    return float(coalition_advantage(flat(ep), flat(c0_ref)))
+
+
+def bernoulli_llr(x, p0: float, p1: float) -> np.ndarray:
+    """Per-observation log-likelihood ratio log f1(x)/f0(x) for Bernoulli(p1) vs Bernoulli(p0)."""
+    x = np.asarray(x, float)
+    return x * np.log(p1 / p0) + (1 - x) * np.log((1 - p1) / (1 - p0))
+
+
+def sprt_B8(stream, alpha: float, beta: float):
+    """B8: Wald sequential probability ratio test on a stream of LLR increments.
+
+    ``stream`` yields log f1(x_t)/f0(x_t).  Stops with ("H1", t) when the cumulative
+    LLR >= log((1-beta)/alpha), ("H0", t) when <= log(beta/(1-alpha)); t is the
+    1-based number of observations used.  If the stream ends first returns
+    ("continue", n_used).  alpha = type-I, beta = type-II target; requires
+    0 < alpha, beta and alpha + beta < 1.  (Wald: realised type-I <= alpha/(1-beta).)
+    """
+    if not (0 < alpha < 1 and 0 < beta < 1 and alpha + beta < 1):
+        raise ValueError("need 0 < alpha, beta and alpha + beta < 1")
+    up, lo = np.log((1 - beta) / alpha), np.log(beta / (1 - alpha))
+    s, t = 0.0, 0
+    for t, l in enumerate(stream, start=1):
+        s += float(l)
+        if s >= up:
+            return "H1", t
+        if s <= lo:
+            return "H0", t
+    return "continue", t
+
+
+def _vec(features) -> np.ndarray:
+    if isinstance(features, dict):
+        v = [features.get(k, 0.0) for k in FEATURE_KEYS]
+    else:
+        v = list(features)
+    return np.nan_to_num(np.asarray(v, float), nan=0.0, posinf=1e6, neginf=-1e6)
+
+
+class B9Model:
+    """Standardised logistic-regression classifier on graph features (see supervised_B9)."""
+
+    def __init__(self, clf, mu, sd):
+        self.clf, self.mu, self.sd = clf, mu, sd
+
+    def score(self, features) -> float:
+        z = (_vec(features) - self.mu) / self.sd
+        return float(self.clf.predict_proba(z[None, :])[0, 1])
+
+
+def supervised_B9(train_feats, labels, C: float = 1.0) -> B9Model:
+    """B9: ordinary supervised classifier on the SAME features the APTG score uses.
+
+    ``train_feats``: list of feature dicts (keys FEATURE_KEYS, missing keys = 0) or
+    equal-length vectors; ``labels``: 0/1.  L2 logistic regression on standardised
+    features; ``.score(features)`` returns P(collusive).  ValueError on length
+    mismatch, empty input or single-class labels.
+    """
+    from sklearn.linear_model import LogisticRegression
+    y = np.asarray(labels).astype(int)
+    if len(train_feats) == 0 or len(train_feats) != len(y):
+        raise ValueError("train_feats and labels must be non-empty and equal length")
+    if len(np.unique(y)) < 2:
+        raise ValueError("labels contain a single class")
+    X = np.vstack([_vec(f) for f in train_feats])
+    mu, sd = X.mean(0), X.std(0)
+    sd[sd < 1e-12] = 1.0
+    clf = LogisticRegression(C=C, max_iter=1000).fit((X - mu) / sd, y)
+    return B9Model(clf, mu, sd)
