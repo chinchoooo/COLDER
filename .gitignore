@@ -36,6 +36,3 @@ ENV/
 *.swp
 *.swo
 
-# Project-specific
-results/
-*.jsonl

@@ -63,6 +63,38 @@ class TestPlayRound:
         payoffs = play_round([2, 2, 4])
         assert len(payoffs) == 3
 
+    # Input validation tests
+    def test_play_round_wrong_length(self):
+        """Test that wrong array length raises ValueError."""
+        with pytest.raises(ValueError, match="length 3"):
+            play_round([1, 2])
+        with pytest.raises(ValueError, match="length 3"):
+            play_round([1, 2, 3, 4])
+
+    def test_play_round_non_1d_input(self):
+        """Test that non-1D input raises ValueError."""
+        with pytest.raises(ValueError, match="1-D"):
+            play_round([[1, 2, 3]])
+        with pytest.raises(ValueError, match="1-D"):
+            play_round(np.array([[1, 2], [3, 4]]))
+
+    def test_play_round_non_integer(self):
+        """Test that non-integer values raise ValueError."""
+        with pytest.raises(ValueError, match="integer"):
+            play_round([1.5, 2.5, 3.5])
+
+    def test_play_round_out_of_range(self):
+        """Test that out-of-range values raise ValueError."""
+        with pytest.raises(ValueError, match="in {0, 1, 2, 3, 4}"):
+            play_round([0, 1, 5])
+        with pytest.raises(ValueError, match="in {0, 1, 2, 3, 4}"):
+            play_round([-1, 2, 3])
+
+    def test_play_round_nan(self):
+        """Test that NaN values raise ValueError."""
+        with pytest.raises(ValueError, match="NaN"):
+            play_round([1, np.nan, 3])
+
 
 class TestCoalitionAdvantage:
     """Test the coalition_advantage function."""
@@ -127,6 +159,89 @@ class TestCoalitionAdvantage:
         # Advantage = 3.0 - 1.5 = 1.5
         advantage = coalition_advantage(logs, c0_ref)
         assert abs(advantage - 1.5) < 1e-6
+
+    def test_coalition_advantage_multi_timestep_episode(self):
+        """Test that coalition_advantage sums across all timesteps per agent per episode."""
+        # Episode 0 has 2 timesteps for each agent
+        # Episode 1 has 3 timesteps for each agent
+        logs = [
+            # Episode 0, timestep 0
+            {"episode": 0, "t": 0, "agent": 0, "payoff": 0.5},
+            {"episode": 0, "t": 0, "agent": 1, "payoff": 0.5},
+            {"episode": 0, "t": 0, "agent": 2, "payoff": 0.0},
+            # Episode 0, timestep 1
+            {"episode": 0, "t": 1, "agent": 0, "payoff": 1.0},
+            {"episode": 0, "t": 1, "agent": 1, "payoff": 1.0},
+            {"episode": 0, "t": 1, "agent": 2, "payoff": 0.0},
+            # Episode 1, timestep 0
+            {"episode": 1, "t": 0, "agent": 0, "payoff": 1.0},
+            {"episode": 1, "t": 0, "agent": 1, "payoff": 1.0},
+            # Episode 1, timestep 1
+            {"episode": 1, "t": 1, "agent": 0, "payoff": 1.0},
+            {"episode": 1, "t": 1, "agent": 1, "payoff": 1.0},
+            # Episode 1, timestep 2
+            {"episode": 1, "t": 2, "agent": 0, "payoff": 2.0},
+            {"episode": 1, "t": 2, "agent": 1, "payoff": 2.0},
+        ]
+
+        # Episode 0: agent 0 gets 0.5 + 1.0 = 1.5, agent 1 gets 0.5 + 1.0 = 1.5, total = 3.0
+        # Episode 1: agent 0 gets 1.0 + 1.0 + 2.0 = 4.0, agent 1 gets 1.0 + 1.0 + 2.0 = 4.0, total = 8.0
+        # Mean = (3.0 + 8.0) / 2 = 5.5
+
+        c0_ref = [
+            {"episode": 0, "t": 0, "agent": 0, "payoff": 0.2},
+            {"episode": 0, "t": 0, "agent": 1, "payoff": 0.2},
+            {"episode": 0, "t": 1, "agent": 0, "payoff": 0.3},
+            {"episode": 0, "t": 1, "agent": 1, "payoff": 0.3},
+            {"episode": 1, "t": 0, "agent": 0, "payoff": 0.5},
+            {"episode": 1, "t": 0, "agent": 1, "payoff": 0.5},
+            {"episode": 1, "t": 1, "agent": 0, "payoff": 0.5},
+            {"episode": 1, "t": 1, "agent": 1, "payoff": 0.5},
+            {"episode": 1, "t": 2, "agent": 0, "payoff": 1.0},
+            {"episode": 1, "t": 2, "agent": 1, "payoff": 1.0},
+        ]
+
+        # Episode 0: agent 0 gets 0.2 + 0.3 = 0.5, agent 1 gets 0.2 + 0.3 = 0.5, total = 1.0
+        # Episode 1: agent 0 gets 0.5 + 0.5 + 1.0 = 2.0, agent 1 gets 0.5 + 0.5 + 1.0 = 2.0, total = 4.0
+        # Mean = (1.0 + 4.0) / 2 = 2.5
+
+        # Advantage = 5.5 - 2.5 = 3.0
+        advantage = coalition_advantage(logs, c0_ref)
+        assert abs(advantage - 3.0) < 1e-6
+        assert isinstance(advantage, float)
+
+    def test_coalition_advantage_empty_logs(self):
+        """Test that empty logs raise ValueError."""
+        c0_ref = [{"episode": 0, "agent": 0, "payoff": 0.5}]
+        with pytest.raises(ValueError, match="empty"):
+            coalition_advantage([], c0_ref)
+
+    def test_coalition_advantage_empty_ref(self):
+        """Test that empty c0_ref raises ValueError."""
+        logs = [{"episode": 0, "agent": 0, "payoff": 0.5}]
+        with pytest.raises(ValueError, match="empty"):
+            coalition_advantage(logs, [])
+
+    def test_coalition_advantage_missing_episode_key(self):
+        """Test that missing episode key raises ValueError."""
+        logs = [{"agent": 0, "payoff": 0.5}]
+        c0_ref = [{"episode": 0, "agent": 0, "payoff": 0.5}]
+        with pytest.raises(ValueError, match="episode"):
+            coalition_advantage(logs, c0_ref)
+
+    def test_coalition_advantage_missing_agent_key(self):
+        """Test that missing agent key raises ValueError."""
+        logs = [{"episode": 0, "payoff": 0.5}]
+        c0_ref = [{"episode": 0, "agent": 0, "payoff": 0.5}]
+        with pytest.raises(ValueError, match="agent"):
+            coalition_advantage(logs, c0_ref)
+
+    def test_coalition_advantage_missing_payoff_key(self):
+        """Test that missing payoff key raises ValueError."""
+        logs = [{"episode": 0, "agent": 0}]
+        c0_ref = [{"episode": 0, "agent": 0, "payoff": 0.5}]
+        with pytest.raises(ValueError, match="payoff"):
+            coalition_advantage(logs, c0_ref)
 
 
 class TestWriteReadRows:
@@ -199,16 +314,12 @@ class TestWriteReadRows:
             assert read_back[0]["label"] is True
             assert read_back[0]["model"] == "llm"
 
-    def test_read_nonexistent_file(self):
-        """Test that reading a nonexistent file returns empty list or raises."""
+    def test_read_nonexistent_file_raises_error(self):
+        """Test that reading a nonexistent file raises FileNotFoundError."""
         with tempfile.TemporaryDirectory() as tmpdir:
             path = Path(tmpdir) / "nonexistent.jsonl"
-            # Should either return empty list or raise FileNotFoundError
-            try:
-                result = read_rows(str(path))
-                assert result == []
-            except FileNotFoundError:
-                pass  # This is also acceptable
+            with pytest.raises(FileNotFoundError):
+                read_rows(str(path))
 
     def test_write_empty_list(self):
         """Test writing an empty list."""
@@ -217,3 +328,14 @@ class TestWriteReadRows:
             write_rows(str(path), [])
             result = read_rows(str(path))
             assert result == []
+
+    def test_write_rows_encoding_utf8(self):
+        """Test that write_rows handles UTF-8 encoding correctly."""
+        with tempfile.TemporaryDirectory() as tmpdir:
+            path = Path(tmpdir) / "utf8.jsonl"
+            rows = [
+                {"episode": 0, "t": 0, "agent": 0, "name": "Agent α", "payoff": 1.0},
+            ]
+            write_rows(str(path), rows)
+            read_back = read_rows(str(path))
+            assert read_back[0]["name"] == "Agent α"
