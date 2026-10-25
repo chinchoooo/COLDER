@@ -64,3 +64,12 @@ Hard USD budget cap in the LLM client; resume-safe logs; mock-agent smoke test b
 ## Blockers needing the user
 ANTHROPIC_API_KEY not set; no LaTeX installed (propose Tectonic); `anthropic`, `gymnasium`, `stable-baselines3`, `networkx` need pip
 install; user's name/email/location for the form; GitHub account + public/private confirmation.
+
+## Amendment (user decisions, 2026-10-25)
+- No API key exists. LLM agents are Claude Haiku subagents (Agent tool, model=haiku, cheapest). Protocol: round-synchronous batching.
+  For each round t a batch file holds one self-contained decision prompt per (episode, agent); Haiku subagents answer each independently
+  and write actions to a response file; a driver script applies them and builds round t+1. Known caveat for the paper: prompts in one batch
+  share a subagent context, so independence between agents is approximate; mitigated by splitting each episode's agents across different
+  subagents, and reported as a limitation. No Anthropic SDK / API spend. Episode length for LLM runs kept short (T~10).
+- Author: Aravinth K, aravinth3007k@gmail.com, Online, India. Solo. Affiliation: Independent.
+- User approved installs of any needed software (Tectonic, pip packages).
