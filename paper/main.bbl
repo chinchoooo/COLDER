@@ -1,0 +1,94 @@
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bonjour et~al.(2022)Bonjour, Aggarwal, and Bhargava]{bonjour2022}
+Trevor Bonjour, Vaneet Aggarwal, and Bharat Bhargava.
+\newblock Information theoretic approach to detect collusion in multi-agent
+  games.
+\newblock In \emph{Proceedings of the 38th Conference on Uncertainty in
+  Artificial Intelligence (UAI)}, volume 180 of \emph{PMLR}, 2022.
+\newblock URL \url{https://proceedings.mlr.press/v180/bonjour22a.html}.
+
+\bibitem[Eschenbaum and Meylahn(2026)]{eschenbaum2026}
+Nicolas Eschenbaum and Janusz~M. Meylahn.
+\newblock Auditing algorithmic collusion from strategy graphs.
+\newblock arXiv:2608.07098, 2026.
+\newblock URL \url{https://arxiv.org/abs/2608.07098}.
+
+\bibitem[Granger(1969)]{granger1969}
+C.~W.~J. Granger.
+\newblock Investigating causal relations by econometric models and
+  cross-spectral methods.
+\newblock \emph{Econometrica}, 37\penalty0 (3):\penalty0 424--438, 1969.
+\newblock \doi{10.2307/1912791}.
+
+\bibitem[Hu et~al.(2026)Hu, Jiang, Li, Ahmed, Huang, Hong, and Gong]{hu2026}
+Yuepeng Hu, Zhengyuan Jiang, Mengyuan Li, Osama Ahmed, Zhicong Huang, Cheng
+  Hong, and Neil~Zhenqiang Gong.
+\newblock Fingerprinting {LLMs} via prompt injection.
+\newblock In \emph{Proceedings of the 64th Annual Meeting of the Association
+  for Computational Linguistics (ACL 2026)}, 2026.
+\newblock URL \url{https://aclanthology.org/2026.acl-long.541/}.
+
+\bibitem[Joseph et~al.(2024)Joseph, Zhong, Gursoy, Velipasalar, and
+  Varshney]{joseph2024}
+Geethu Joseph, Chen Zhong, M.~Cenk Gursoy, Senem Velipasalar, and Pramod~K.
+  Varshney.
+\newblock Anomaly detection via learning-based sequential controlled sensing.
+\newblock \emph{IEEE Sensors Journal}, 24, 2024.
+\newblock \doi{10.1109/JSEN.2024.3399456}.
+
+\bibitem[Leshin et~al.(2026)Leshin, Shah, Timmis, and Kang]{leshin2026}
+J.~Leshin, M.~Shah, I.~Timmis, and D.~Kang.
+\newblock Behavioral fingerprints for {LLM} endpoint stability and identity.
+\newblock In \emph{Proceedings of the ACM Conference on AI and Agentic Systems
+  (CAIS 2026)}, 2026.
+\newblock \doi{10.1145/3786335.3813194}.
+
+\bibitem[Mathew et~al.(2025)Mathew, Matthews, McCarthy, Velja, Schroeder~de
+  Witt, Cope, and Schoots]{mathew2025}
+Yohan Mathew, Ollie Matthews, Robert McCarthy, Joan Velja, Christian
+  Schroeder~de Witt, Dylan Cope, and Nandi Schoots.
+\newblock Hidden in plain text: Emergence \& mitigation of steganographic
+  collusion in {LLMs}.
+\newblock In \emph{Proceedings of IJCNLP-AACL 2025}, 2025.
+\newblock URL \url{https://aclanthology.org/2025.ijcnlp-long.34/}.
+
+\bibitem[Motwani et~al.(2024)Motwani, Baranchuk, Strohmeier, Bolina, Torr,
+  Hammond, and Schroeder~de Witt]{motwani2024}
+Sumeet~Ramesh Motwani, Mikhail Baranchuk, Martin Strohmeier, Vijay Bolina,
+  Philip H.~S. Torr, Lewis Hammond, and Christian Schroeder~de Witt.
+\newblock Secret collusion among {AI} agents: Multi-agent deception via
+  steganography.
+\newblock In \emph{Advances in Neural Information Processing Systems 37
+  (NeurIPS 2024)}, 2024.
+\newblock URL
+  \url{https://proceedings.neurips.cc/paper_files/paper/2024/hash/861f7dad098aec1c3560fb7add468d41-Abstract-Conference.html}.
+
+\bibitem[Nakamura et~al.(2026)Nakamura, Kumar, Das, Abdelnabi, Mahmud,
+  Fioretto, Zilberstein, and Bagdasarian]{nakamura2026}
+Mason Nakamura, Abhinav Kumar, Saswat Das, Sahar Abdelnabi, Saaduddin Mahmud,
+  Ferdinando Fioretto, Shlomo Zilberstein, and Eugene Bagdasarian.
+\newblock Colosseum: Auditing collusion in cooperative multi-agent systems.
+\newblock arXiv:2602.15198, 2026.
+\newblock URL \url{https://arxiv.org/abs/2602.15198}.
+
+\bibitem[Rose et~al.(2026)Rose, Cullen, Abdelnabi, Torr, Kaplowitz, and
+  Schroeder~de Witt]{rose2026}
+Aaron Rose, Carissa Cullen, Sahar Abdelnabi, Philip Torr, Brandon~Gary
+  Kaplowitz, and Christian Schroeder~de Witt.
+\newblock Detecting multi-agent collusion through multi-agent interpretability.
+\newblock arXiv:2604.01151, 2026.
+\newblock URL \url{https://arxiv.org/abs/2604.01151}.
+
+\bibitem[Schreiber(2000)]{schreiber2000}
+Thomas Schreiber.
+\newblock Measuring information transfer.
+\newblock \emph{Physical Review Letters}, 85:\penalty0 461--464, 2000.
+\newblock \doi{10.1103/PhysRevLett.85.461}.
+
+\end{thebibliography}
