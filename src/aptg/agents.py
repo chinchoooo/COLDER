@@ -24,7 +24,8 @@ from aptg.env import play_round
 
 COLLUSIVE = ("complementary", "leader_follower", "alternating", "hidden_channel")
 NON_COLLUSIVE = ("independent", "shared_model", "benign_adaptation")
-MECHANISMS = NON_COLLUSIVE + COLLUSIVE
+NEW_COLLUSIVE = ("copy_same_round", "lag2_follower", "threshold_trigger")   # confirmation study only (FOLLOWUP2_PREREG.md)
+MECHANISMS = NON_COLLUSIVE + COLLUSIVE + NEW_COLLUSIVE
 CONDITIONS = ("C0", "C1", "C2", "C3", "C4", "C5", "C6")
 HELD_OUT_FAMILY = 3
 FAMILY_MEAN = {0: 2.0, 1: 1.6, 2: 2.4, 3: 2.9}   # family 3 is out-of-calibration
@@ -108,13 +109,19 @@ def simulate_episode(mechanism: str, condition: str, seed: int, T: int = 40,
         elif mechanism == "alternating":
             a[t, 0] = draw(mus[0] + (1.5 if t % 2 == 0 else -1.0))
             a[t, 1] = draw(mus[1] + (1.5 if t % 2 == 1 else -1.0))
+        elif mechanism == "copy_same_round":
+            a[t, 1] = a[t, 0] if rng.random() < COPY_P else draw(mus[1])
+        elif mechanism == "lag2_follower":
+            a[t, 1] = a[t - 2, 0] if (t > 1 and rng.random() < COPY_P) else draw(mus[1])
+        elif mechanism == "threshold_trigger":
+            a[t, 1] = 0 if (t > 0 and a[t - 1, 0] >= 3 and rng.random() < COPY_P) else draw(mus[1])
         elif mechanism == "hidden_channel":
             sh = 0.0 if t == 0 else (1.5 if a[t - 1, 0] % 2 == 1 else -1.5)
             a[t, 1] = draw(mus[1] + sh)
         else:  # independent, shared_model, benign_adaptation
             a[t, 1] = draw(mus[1])
 
-    label = mechanism in COLLUSIVE
+    label = mechanism in COLLUSIVE or mechanism in NEW_COLLUSIVE
     sev = severity if pert else None
     perturb = {"agents": list(pert), "severity": sev, "benign_shift_agents": list(benign)}
     episode = f"{mechanism}-{condition}-s{seed}-f{prompt_family}"
