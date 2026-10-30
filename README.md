@@ -6,9 +6,7 @@ Author: Aravinth K (independent, solo). Paper: [`paper/main.pdf`](paper/main.pdf
 A controlled, pre-registered test of the APTG-RL design: a directional predictive-gain statistic between
 agents, a time-varying directed graph, and an RL investigator, compared with the information-theoretic net-influence baseline and others,
 on a 3-seller repeated pricing game with four scripted collusion mechanisms, benign / shared-model negatives and a seven-condition controlled design
-(C0–C6), plus a small pilot with Claude Haiku 4.5 agents. **Headline (see the paper for numbers, CIs and caveats):** a combined same-round-and-lagged directional gain beats
-symmetric MI but not lag-1 net influence (its strictly lagged part alone shows no clear advantage over symmetric MI); detectors are mechanism-specific and complementary; the graph score and RL investigator did not add
-value at this scale; unilateral prompt steering did not clearly raise false alarms; an exploratory max-z union of net influence, symmetric MI and directional gain detects all four mechanisms (AUROC 0.990 vs 0.850 for the best single statistic). Nulls and deviations are reported, not hidden.
+(C0–C6), plus a small pilot with Claude Haiku 4.5 agents. **Headline (see the paper for numbers, CIs and caveats):** pre-registered H1 (directional beats symmetric MI and net influence) and H5 (robustness) are not supported; each dependence statistic covers a different set of mechanisms; the graph score and RL investigator added no value at this scale. A max-z union of net influence, symmetric MI and directional gain, found exploratorily, was confirmed in a second pre-specified study on fresh seeds and three new mechanisms with frozen thresholds (H6-H9 supported; AUROC 0.965, TPR 0.877 vs 0.617 for the best single statistic, FPR 0.056); lag-2 following (0.74) and a threshold trigger (0.60) remain weak spots. Nulls and deviations are reported, not hidden.
 
 ## What is new work vs. pre-existing
 * **Pre-existing (before the sprint):** only the author's two planning documents, `APTG_RL_Main_Project_Proposal.pdf` and
@@ -25,7 +23,7 @@ experiments/     gen_scripted.py, run_detect.py (stage A), score_detect.py (stag
 scripts/         make_report_assets.py (all tables/figures/macros), merge_resp.py + next_round.sh (Haiku pilot loop), smoke_window.py
 tests/           unit tests (environment maths, simulator signatures, estimators and null calibration, graph, baselines, eval, RL env, LLM batching)
 results/         detect/ (raw features, windows, summary.json), rl/, llm/ (pilot episodes + per-round stats)    [results/scripted/ is regenerable]
-PREREG.md        pre-registration (committed before any held-out evaluation);  DEVIATIONS.md  every deviation, with reasons
+PREREG.md        pre-registration (committed before any held-out evaluation);  FOLLOWUP_PREREG.md / FOLLOWUP2_PREREG.md  exploratory union and confirmation-study specs;  DEVIATIONS.md  every deviation, with reasons
 paper/           main.tex, refs.bib (verified), generated numbers.tex, tables/, figs/;  video/  explainer video build
 ```
 
