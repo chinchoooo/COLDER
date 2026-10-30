@@ -8,7 +8,7 @@ agents, a time-varying directed graph, and an RL investigator, compared with the
 on a 3-seller repeated pricing game with four scripted collusion mechanisms, benign / shared-model negatives and a seven-condition controlled design
 (C0–C6), plus a small pilot with Claude Haiku 4.5 agents. **Headline (see the paper for numbers, CIs and caveats):** a combined same-round-and-lagged directional gain beats
 symmetric MI but not lag-1 net influence (its strictly lagged part alone shows no clear advantage over symmetric MI); detectors are mechanism-specific and complementary; the graph score and RL investigator did not add
-value at this scale; unilateral prompt steering did not clearly raise false alarms. Nulls and deviations are reported, not hidden.
+value at this scale; unilateral prompt steering did not clearly raise false alarms; an exploratory max-z union of net influence, symmetric MI and directional gain detects all four mechanisms (AUROC 0.990 vs 0.850 for the best single statistic). Nulls and deviations are reported, not hidden.
 
 ## What is new work vs. pre-existing
 * **Pre-existing (before the sprint):** only the author's two planning documents, `APTG_RL_Main_Project_Proposal.pdf` and
