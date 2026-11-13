@@ -46,7 +46,7 @@ A. `DEVIATIONS.md` 1-4: Westfall-Young maxT replaces BH because with at most 200
 ## 4. Results, study 1 (pre-registered)
 
 **Q1. B3 beat B2 in AUROC, so why is H1 "not supported"?**
-A. The rule in `PREREG.md` required the directional method to beat both B2 and B1 on TPR with a paired-bootstrap CI excluding 0. It beats B2 but B1 has higher TPR (dTPR B3-B1 -0.162 [-0.267, -0.060], `DEVIATIONS.md` 14). The verdict was changed to "not supported" after external review (commit `2fbdfc2`); the original wording was more favourable, which a judge may ask about. The change is logged and no earlier result changed.
+A. The rule in `PREREG.md` required the directional method to beat both B2 and B1 on TPR with a paired-bootstrap CI excluding 0. It beats B2 but B1 has higher TPR (dTPR B3-B1 -0.162 [-0.267, -0.060], `DEVIATIONS.md` 14). The verdict was changed to "not supported" after external review (commit `2fbdfc2`); the pre-review wording is in earlier commits, which a judge may ask about. The change is logged and no earlier result changed.
 
 **Q2. What would falsify the "mechanisms are covered differently" finding?**
 A. A detector that covers all four study-1 mechanisms at the validation threshold. Table 2 (`paper/tables/mech.tex`) shows none does: B1 is blind to complementary pricing, B2 is the reverse, B3 misses the hidden channel (0.10). Whether this holds under other noise levels or game lengths: not established.
@@ -63,7 +63,7 @@ A. Only three windows per T=40 episode and 30 permutations (Limitations 2, 4, 5;
 ## 5. Union and confirmation
 
 **Q1. Why max-z and not a learned combiner or a Bonferroni-style OR rule?**
-A. Max-z of robust z-scores was the simplest combiner pre-specified in `FOLLOWUP_PREREG.md`. No comparison with a learned combiner or a Bonferroni OR rule is committed: not established (the paper lists it as nothing; it is an open criticism).
+A. Max-z of robust z-scores was the simplest combiner pre-specified in `FOLLOWUP_PREREG.md`. No comparison with a learned combiner or a Bonferroni OR rule is committed: not established (the paper does not discuss it; expect it as a criticism).
 
 **Q2. Was the exploratory union specified before it was run?**
 A. `FOLLOWUP_PREREG.md` says it was written before the union was computed, but it was committed together with the results, so the order is not verifiable from git (`DEVIATIONS.md` 15, paper Appendix deviation 8). That is why the confirmation study exists.
