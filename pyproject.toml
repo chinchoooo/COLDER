@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "aptg"
 version = "0.1.0"
-description = "APTG-RL: Algorithmic Pricing with Tactical Gameplay and Reinforcement Learning"
+description = "APTG-RL: Adversarially Perturbed Temporal Graphs for RL-Based Detection of Multi-Agent LLM Collusion"
 authors = [
     {name = "Aravinth K", email = "aravinth3007k@gmail.com"}
 ]
@@ -35,4 +35,4 @@ packages = ["aptg"]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
-markers = ["slow: statistical calibration tests (minutes)"]
+markers = ["slow: statistical calibration tests (minutes); run with -m slow, CI deselects them with -m \"not slow\""]

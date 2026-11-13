@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software or the accompanying study, please cite it as below."
+title: "No Single Dependence Statistic Detects Collusion: A Pre-Registered Study and a Confirmed Union Detector"
+type: software
+authors:
+  - family-names: "K"
+    given-names: "Aravinth"
+    affiliation: "Madras Institute of Technology, Anna University"
+repository-code: "https://github.com/chinchoooo/COLDER"
+license: MIT
+version: "0.1.0"
