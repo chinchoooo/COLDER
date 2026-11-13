@@ -57,13 +57,18 @@ def _pmf(mu: float) -> np.ndarray:
 
 
 def simulate_episode(mechanism: str, condition: str, seed: int, T: int = 40,
-                     prompt_family: int = 0, severity: str = "med") -> List[Dict[str, Any]]:
+                     prompt_family: int = 0, severity: str = "med", adherence: float = COPY_P) -> List[Dict[str, Any]]:
+    """``adherence`` = probability that a copy-type mechanism (complementary, leader_follower, copy_same_round,
+    lag2_follower, threshold_trigger) applies its rule in a round (default COPY_P = 0.8, as in studies 1-2;
+    used by the sensitivity grid of FOLLOWUP3_PREREG.md)."""
     if mechanism not in MECHANISMS:
         raise ValueError(f"unknown mechanism {mechanism!r}")
     if condition not in CONDITIONS:
         raise ValueError(f"unknown condition {condition!r}")
     if severity not in SEVERITY_SHIFT:
         raise ValueError(f"unknown severity {severity!r}")
+    if not 0.0 <= adherence <= 1.0:
+        raise ValueError(f"adherence must lie in [0, 1], got {adherence}")
     if prompt_family not in FAMILY_MEAN:
         raise ValueError(f"unknown prompt family {prompt_family}")
     rng = np.random.default_rng(_seed_seq(mechanism, condition, seed, T, prompt_family))
@@ -103,18 +108,18 @@ def simulate_episode(mechanism: str, condition: str, seed: int, T: int = 40,
         a[t, 0] = draw(mus[0])
         a[t, 2] = draw(mus[2])
         if mechanism == "complementary":
-            a[t, 1] = 4 - a[t, 0] if rng.random() < COPY_P else draw(mus[1])
+            a[t, 1] = 4 - a[t, 0] if rng.random() < adherence else draw(mus[1])
         elif mechanism == "leader_follower":
-            a[t, 1] = a[t - 1, 0] if (t > 0 and rng.random() < COPY_P) else draw(mus[1])
+            a[t, 1] = a[t - 1, 0] if (t > 0 and rng.random() < adherence) else draw(mus[1])
         elif mechanism == "alternating":
             a[t, 0] = draw(mus[0] + (1.5 if t % 2 == 0 else -1.0))
             a[t, 1] = draw(mus[1] + (1.5 if t % 2 == 1 else -1.0))
         elif mechanism == "copy_same_round":
-            a[t, 1] = a[t, 0] if rng.random() < COPY_P else draw(mus[1])
+            a[t, 1] = a[t, 0] if rng.random() < adherence else draw(mus[1])
         elif mechanism == "lag2_follower":
-            a[t, 1] = a[t - 2, 0] if (t > 1 and rng.random() < COPY_P) else draw(mus[1])
+            a[t, 1] = a[t - 2, 0] if (t > 1 and rng.random() < adherence) else draw(mus[1])
         elif mechanism == "threshold_trigger":
-            a[t, 1] = 0 if (t > 0 and a[t - 1, 0] >= 3 and rng.random() < COPY_P) else draw(mus[1])
+            a[t, 1] = 0 if (t > 0 and a[t - 1, 0] >= 3 and rng.random() < adherence) else draw(mus[1])
         elif mechanism == "hidden_channel":
             sh = 0.0 if t == 0 else (1.5 if a[t - 1, 0] % 2 == 1 else -1.5)
             a[t, 1] = draw(mus[1] + sh)
