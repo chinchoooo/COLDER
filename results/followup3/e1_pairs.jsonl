@@ -1,0 +1,180 @@
+{"kind": "indep", "seed": 30500, "stability": [0.896, 0.752], "cpu_s": 4.795447136, "punish": 0.12500000000000003, "return_gap": -0.008749999999999997, "dev_gain": -0.18750000000000008, "price": 1.5678571428571426}
+{"kind": "indep", "seed": 30501, "stability": [0.936, 0.72], "cpu_s": 4.307344016, "punish": 0.008333333333333342, "return_gap": 0.011249999999999993, "dev_gain": -0.2791666666666667, "price": 1.3071428571428572}
+{"kind": "indep", "seed": 30502, "stability": [0.784, 0.608], "cpu_s": 4.798852071000001, "punish": -0.225, "return_gap": 0.0012500000000000067, "dev_gain": -0.26249999999999984, "price": 1.275}
+{"kind": "indep", "seed": 30503, "stability": [0.896, 0.64], "cpu_s": 5.932945328000001, "punish": -0.09166666666666666, "return_gap": -0.0025000000000000022, "dev_gain": -0.6499999999999999, "price": 1.0}
+{"kind": "indep", "seed": 30504, "stability": [0.912, 0.64], "cpu_s": 4.835752319000001, "punish": -0.06666666666666665, "return_gap": -0.022500000000000013, "dev_gain": -0.37500000000000017, "price": 1.29375}
+{"kind": "indep", "seed": 30505, "stability": [0.776, 0.816], "cpu_s": 4.248795798000003, "punish": 0.016666666666666646, "return_gap": -0.0012499999999999955, "dev_gain": -0.4041666666666666, "price": 1.3125}
+{"kind": "indep", "seed": 30506, "stability": [0.84, 0.712], "cpu_s": 4.730266547999996, "punish": 0.016666666666666663, "return_gap": -0.012500000000000006, "dev_gain": 0.012500000000000056, "price": 1.51875}
+{"kind": "indep", "seed": 30507, "stability": [0.84, 0.776], "cpu_s": 4.830321949999998, "punish": -0.13333333333333336, "return_gap": -0.004999999999999993, "dev_gain": -0.05833333333333331, "price": 1.3339285714285716}
+{"kind": "indep", "seed": 30508, "stability": [0.936, 0.872], "cpu_s": 5.077162688999998, "punish": 0.03333333333333333, "return_gap": 0.0050000000000000044, "dev_gain": -0.24999999999999992, "price": 1.3910714285714287}
+{"kind": "indep", "seed": 30509, "stability": [0.592, 0.744], "cpu_s": 5.276255943999999, "punish": -0.29166666666666663, "return_gap": -0.07875000000000001, "dev_gain": -0.29166666666666663, "price": 1.0}
+{"kind": "indep", "seed": 30510, "stability": [0.76, 0.592], "cpu_s": 4.806602616, "punish": -0.05833333333333333, "return_gap": -0.003750000000000009, "dev_gain": -0.4375, "price": 1.1919642857142858}
+{"kind": "indep", "seed": 30511, "stability": [0.888, 0.88], "cpu_s": 4.6087874630000005, "punish": 0.01666666666666667, "return_gap": -0.008750000000000003, "dev_gain": -0.37083333333333335, "price": 1.4910714285714284}
+{"kind": "indep", "seed": 30512, "stability": [0.96, 0.744], "cpu_s": 4.232672508999999, "punish": -0.18333333333333335, "return_gap": -0.0125, "dev_gain": -0.17916666666666653, "price": 1.1196428571428574}
+{"kind": "indep", "seed": 30513, "stability": [0.768, 0.824], "cpu_s": 4.866478593000002, "punish": 0.05, "return_gap": 0.0025000000000000022, "dev_gain": -0.3958333333333333, "price": 1.2214285714285713}
+{"kind": "indep", "seed": 30514, "stability": [0.688, 0.896], "cpu_s": 5.260292674999999, "punish": -0.2, "return_gap": -0.0037500000000000146, "dev_gain": -0.21666666666666665, "price": 1.2196428571428573}
+{"kind": "indep", "seed": 30515, "stability": [0.72, 0.8], "cpu_s": 5.067013991, "punish": 0.01666666666666667, "return_gap": -0.0037499999999999977, "dev_gain": -0.3791666666666667, "price": 1.4348214285714285}
+{"kind": "indep", "seed": 30516, "stability": [0.744, 0.848], "cpu_s": 5.871642315999999, "punish": -0.2583333333333333, "return_gap": -0.0025000000000000022, "dev_gain": -0.5125, "price": 1.0}
+{"kind": "indep", "seed": 30517, "stability": [0.888, 0.696], "cpu_s": 5.423599605999996, "punish": 0.016666666666666673, "return_gap": -0.00874999999999999, "dev_gain": -0.5083333333333335, "price": 1.5357142857142858}
+{"kind": "indep", "seed": 30518, "stability": [0.76, 0.832], "cpu_s": 4.648551123000004, "punish": -0.15833333333333335, "return_gap": -0.005000000000000021, "dev_gain": -0.18749999999999994, "price": 1.33125}
+{"kind": "indep", "seed": 30519, "stability": [0.912, 0.624], "cpu_s": 5.019086162999997, "punish": -0.058333333333333334, "return_gap": 0.0012500000000000011, "dev_gain": -0.36249999999999993, "price": 1.2580357142857141}
+{"kind": "indep", "seed": 30520, "stability": [0.904, 0.824], "cpu_s": 4.929369687000005, "punish": 1.1102230246251566e-17, "return_gap": -0.008750000000000003, "dev_gain": -0.5166666666666668, "price": 1.2241071428571428}
+{"kind": "indep", "seed": 30521, "stability": [0.704, 0.808], "cpu_s": 4.459289588000004, "punish": 0.03333333333333334, "return_gap": -0.013750000000000002, "dev_gain": -0.12916666666666665, "price": 1.4133928571428571}
+{"kind": "indep", "seed": 30522, "stability": [0.904, 0.752], "cpu_s": 5.056467366000007, "punish": 0.05, "return_gap": 0.0050000000000000044, "dev_gain": -0.25, "price": 1.3803571428571428}
+{"kind": "indep", "seed": 30523, "stability": [0.808, 0.784], "cpu_s": 5.11875236600001, "punish": 0.05000000000000003, "return_gap": -0.00500000000000001, "dev_gain": -0.23750000000000004, "price": 1.4348214285714285}
+{"kind": "indep", "seed": 30524, "stability": [0.84, 0.808], "cpu_s": 4.84398182999999, "punish": -0.09999999999999998, "return_gap": 0.0, "dev_gain": -0.4958333333333333, "price": 1.05}
+{"kind": "indep", "seed": 30525, "stability": [0.624, 0.752], "cpu_s": 4.566081467999993, "punish": 0.025000000000000012, "return_gap": -0.0012500000000000011, "dev_gain": -0.4791666666666667, "price": 1.3258928571428572}
+{"kind": "indep", "seed": 30526, "stability": [0.736, 0.744], "cpu_s": 4.816304078999991, "punish": -0.04999999999999999, "return_gap": 0.0, "dev_gain": -0.39166666666666655, "price": 1.1196428571428574}
+{"kind": "indep", "seed": 30527, "stability": [0.688, 0.912], "cpu_s": 4.896605390999994, "punish": -0.15833333333333333, "return_gap": -0.00625, "dev_gain": -0.31249999999999994, "price": 1.0464285714285715}
+{"kind": "indep", "seed": 30528, "stability": [0.944, 0.872], "cpu_s": 4.4273724180000045, "punish": -0.04166666666666665, "return_gap": -0.016249999999999994, "dev_gain": -0.3458333333333332, "price": 1.4642857142857142}
+{"kind": "indep", "seed": 30529, "stability": [0.664, 0.912], "cpu_s": 4.416920082000004, "punish": 0.08333333333333333, "return_gap": -0.0012500000000000067, "dev_gain": -0.0375, "price": 1.3651785714285714}
+{"kind": "indep", "seed": 30530, "stability": [0.792, 0.816], "cpu_s": 4.450281924999999, "punish": 0.041666666666666664, "return_gap": -0.0024999999999999966, "dev_gain": -0.24166666666666653, "price": 1.5669642857142858}
+{"kind": "indep", "seed": 30531, "stability": [0.664, 0.832], "cpu_s": 4.269761943999995, "punish": -0.03333333333333334, "return_gap": -0.0024999999999999966, "dev_gain": -0.19583333333333325, "price": 1.3928571428571428}
+{"kind": "indep", "seed": 30532, "stability": [0.864, 0.8], "cpu_s": 4.539125119000005, "punish": -0.11666666666666667, "return_gap": 0.0, "dev_gain": -0.39166666666666666, "price": 1.2169642857142857}
+{"kind": "indep", "seed": 30533, "stability": [0.896, 0.896], "cpu_s": 4.859771748, "punish": -0.15833333333333335, "return_gap": -0.024999999999999988, "dev_gain": -0.3916666666666665, "price": 1.1803571428571429}
+{"kind": "indep", "seed": 30534, "stability": [0.912, 0.808], "cpu_s": 5.300016117000013, "punish": -0.025, "return_gap": 0.017500000000000005, "dev_gain": -0.44583333333333314, "price": 1.4964285714285714}
+{"kind": "indep", "seed": 30535, "stability": [0.752, 0.904], "cpu_s": 5.540872667000002, "punish": -0.13333333333333336, "return_gap": -0.01125000000000001, "dev_gain": 0.2833333333333334, "price": 1.2276785714285714}
+{"kind": "indep", "seed": 30536, "stability": [0.968, 0.728], "cpu_s": 4.900443846000002, "punish": -0.13333333333333336, "return_gap": 0.0, "dev_gain": 0.32500000000000007, "price": 1.66875}
+{"kind": "indep", "seed": 30537, "stability": [0.808, 0.872], "cpu_s": 4.886111982000017, "punish": -0.024999999999999984, "return_gap": 0.0012500000000000011, "dev_gain": 0.2583333333333334, "price": 1.5982142857142858}
+{"kind": "indep", "seed": 30538, "stability": [0.888, 0.8], "cpu_s": 5.119910164999993, "punish": -0.08333333333333334, "return_gap": -0.00625, "dev_gain": -0.5583333333333333, "price": 1.325}
+{"kind": "indep", "seed": 30539, "stability": [0.936, 0.896], "cpu_s": 5.785690649999992, "punish": -0.1583333333333333, "return_gap": -0.009999999999999998, "dev_gain": -0.5458333333333333, "price": 1.00625}
+{"kind": "indep", "seed": 30540, "stability": [0.728, 0.888], "cpu_s": 4.595095648000012, "punish": -0.06666666666666667, "return_gap": 0.0012500000000000011, "dev_gain": -0.12500000000000006, "price": 1.2482142857142857}
+{"kind": "indep", "seed": 30541, "stability": [0.792, 0.864], "cpu_s": 5.6045282070000155, "punish": -0.03333333333333334, "return_gap": -0.0025000000000000022, "dev_gain": -0.3291666666666667, "price": 1.2366071428571428}
+{"kind": "indep", "seed": 30542, "stability": [0.624, 0.688], "cpu_s": 4.7457905880000055, "punish": 0.008333333333333326, "return_gap": 0.004999999999999993, "dev_gain": 0.054166666666666585, "price": 1.58125}
+{"kind": "indep", "seed": 30543, "stability": [0.68, 0.736], "cpu_s": 5.364311547999989, "punish": -0.14166666666666666, "return_gap": -0.0125, "dev_gain": -0.5375, "price": 1.16875}
+{"kind": "indep", "seed": 30544, "stability": [0.792, 0.896], "cpu_s": 4.53312640499999, "punish": 0.01666666666666667, "return_gap": 0.0012499999999999955, "dev_gain": -0.3333333333333333, "price": 1.2232142857142858}
+{"kind": "indep", "seed": 30545, "stability": [0.944, 0.888], "cpu_s": 5.096572172999998, "punish": 0.058333333333333334, "return_gap": 0.0, "dev_gain": -0.27083333333333337, "price": 1.3857142857142857}
+{"kind": "indep", "seed": 30546, "stability": [0.928, 0.848], "cpu_s": 4.446541263, "punish": -0.075, "return_gap": -0.0012500000000000011, "dev_gain": -0.012499999999999923, "price": 1.3982142857142859}
+{"kind": "indep", "seed": 30547, "stability": [0.896, 0.76], "cpu_s": 4.5780905029999985, "punish": -0.25, "return_gap": -0.0037499999999999977, "dev_gain": -0.11666666666666674, "price": 1.4589285714285716}
+{"kind": "indep", "seed": 30548, "stability": [0.76, 0.848], "cpu_s": 4.941869440000005, "punish": -0.29999999999999993, "return_gap": 0.00625, "dev_gain": -0.24999999999999992, "price": 1.0883928571428572}
+{"kind": "indep", "seed": 30549, "stability": [0.776, 0.832], "cpu_s": 4.524663523000015, "punish": -0.06666666666666667, "return_gap": -0.0024999999999999857, "dev_gain": 0.775, "price": 1.3866071428571427}
+{"kind": "indep", "seed": 30550, "stability": [0.864, 0.848], "cpu_s": 5.044409606000016, "punish": 0.13333333333333333, "return_gap": 0.017499999999999995, "dev_gain": -0.36249999999999993, "price": 1.6017857142857141}
+{"kind": "indep", "seed": 30551, "stability": [0.864, 0.776], "cpu_s": 4.394783836999977, "punish": -0.125, "return_gap": -0.016250000000000004, "dev_gain": -0.36249999999999993, "price": 1.0883928571428572}
+{"kind": "indep", "seed": 30552, "stability": [0.88, 0.792], "cpu_s": 4.24493345800002, "punish": -0.17499999999999996, "return_gap": -0.045, "dev_gain": -0.5541666666666666, "price": 1.1616071428571428}
+{"kind": "indep", "seed": 30553, "stability": [0.736, 0.776], "cpu_s": 4.347485438999996, "punish": -0.14166666666666666, "return_gap": -0.0062500000000000056, "dev_gain": -0.43333333333333324, "price": 1.2169642857142857}
+{"kind": "indep", "seed": 30554, "stability": [0.84, 0.88], "cpu_s": 4.419268914000014, "punish": -0.125, "return_gap": -0.0062500000000000056, "dev_gain": -0.08750000000000002, "price": 1.275}
+{"kind": "indep", "seed": 30555, "stability": [0.736, 0.928], "cpu_s": 4.394173292999994, "punish": 0.07500000000000002, "return_gap": 0.05500000000000001, "dev_gain": -0.5333333333333333, "price": 1.763392857142857}
+{"kind": "indep", "seed": 30556, "stability": [0.704, 0.728], "cpu_s": 4.397408813999988, "punish": -0.15000000000000002, "return_gap": -0.007500000000000018, "dev_gain": -0.5541666666666666, "price": 1.0875}
+{"kind": "indep", "seed": 30557, "stability": [0.696, 0.888], "cpu_s": 4.589298821, "punish": -0.1166666666666667, "return_gap": 0.008749999999999985, "dev_gain": -0.3541666666666667, "price": 1.2321428571428572}
+{"kind": "indep", "seed": 30558, "stability": [0.704, 0.912], "cpu_s": 4.687195573000025, "punish": -0.125, "return_gap": -0.008750000000000003, "dev_gain": -0.37916666666666654, "price": 1.0991071428571428}
+{"kind": "indep", "seed": 30559, "stability": [0.768, 0.768], "cpu_s": 4.159153084999986, "punish": -0.05000000000000001, "return_gap": 0.0012499999999999955, "dev_gain": -0.3916666666666666, "price": 1.2589285714285716}
+{"kind": "joint", "seed": 30000, "stability": [0.704], "cpu_s": 2.8819396190000077, "punish": -0.049999999999999996, "return_gap": 0.0, "dev_gain": -0.4333333333333333, "price": 1.0}
+{"kind": "joint", "seed": 30001, "stability": [0.872], "cpu_s": 3.2450535510000122, "punish": -0.475, "return_gap": -0.012500000000000006, "dev_gain": 0.06249999999999993, "price": 1.0}
+{"kind": "joint", "seed": 30002, "stability": [0.828], "cpu_s": 2.888625517999998, "punish": -0.08333333333333333, "return_gap": 0.0, "dev_gain": -0.4083333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30003, "stability": [0.608], "cpu_s": 2.6173933399999783, "punish": -0.18333333333333335, "return_gap": 0.0, "dev_gain": -0.4708333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30004, "stability": [0.612], "cpu_s": 3.01956908599999, "punish": -0.008333333333333331, "return_gap": 0.0, "dev_gain": -0.4416666666666666, "price": 1.0160714285714285}
+{"kind": "joint", "seed": 30005, "stability": [0.528], "cpu_s": 2.484243483, "punish": -0.1333333333333333, "return_gap": 0.0, "dev_gain": -0.5166666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30006, "stability": [0.792], "cpu_s": 2.6027186720000373, "punish": -0.05833333333333333, "return_gap": 0.0, "dev_gain": -0.4833333333333334, "price": 1.0}
+{"kind": "joint", "seed": 30007, "stability": [0.676], "cpu_s": 3.1165819540000257, "punish": -0.04166666666666666, "return_gap": 0.0, "dev_gain": -0.4833333333333334, "price": 1.1357142857142857}
+{"kind": "joint", "seed": 30008, "stability": [0.728], "cpu_s": 3.066430547999971, "punish": -0.01666666666666667, "return_gap": 0.0, "dev_gain": -0.47916666666666663, "price": 1.0}
+{"kind": "joint", "seed": 30009, "stability": [0.744], "cpu_s": 3.202998062000006, "punish": -0.07499999999999998, "return_gap": -0.0025000000000000022, "dev_gain": -0.4333333333333334, "price": 1.0}
+{"kind": "joint", "seed": 30010, "stability": [0.612], "cpu_s": 2.7893097649999845, "punish": -0.03333333333333334, "return_gap": 0.0, "dev_gain": -0.5125, "price": 1.0}
+{"kind": "joint", "seed": 30011, "stability": [0.676], "cpu_s": 2.9703915160000065, "punish": 0.025, "return_gap": 0.0, "dev_gain": -0.5208333333333333, "price": 1.0}
+{"kind": "joint", "seed": 30012, "stability": [0.628], "cpu_s": 2.7647215989999836, "punish": -0.01666666666666667, "return_gap": 0.0, "dev_gain": -0.4541666666666667, "price": 1.0125}
+{"kind": "joint", "seed": 30013, "stability": [0.684], "cpu_s": 3.0057847150000043, "punish": -0.01666666666666667, "return_gap": 0.0, "dev_gain": -0.4541666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30014, "stability": [0.708], "cpu_s": 2.6116197829999805, "punish": -0.09999999999999998, "return_gap": -0.0075000000000000015, "dev_gain": -0.4958333333333334, "price": 1.0}
+{"kind": "joint", "seed": 30015, "stability": [0.668], "cpu_s": 3.2135302600000273, "punish": -0.016666666666666663, "return_gap": 0.0, "dev_gain": -0.4291666666666668, "price": 1.0}
+{"kind": "joint", "seed": 30016, "stability": [0.812], "cpu_s": 2.7651994860000286, "punish": -0.03333333333333333, "return_gap": 0.0, "dev_gain": -0.4958333333333334, "price": 1.019642857142857}
+{"kind": "joint", "seed": 30017, "stability": [0.932], "cpu_s": 2.77665376799996, "punish": -0.1333333333333333, "return_gap": 0.0, "dev_gain": -0.4125, "price": 1.0}
+{"kind": "joint", "seed": 30018, "stability": [0.784], "cpu_s": 3.027350270999989, "punish": -0.025, "return_gap": 0.0, "dev_gain": -0.4124999999999999, "price": 1.0053571428571428}
+{"kind": "joint", "seed": 30019, "stability": [0.992], "cpu_s": 3.646062930000028, "punish": 0.5083333333333334, "return_gap": 0.25375000000000003, "dev_gain": -1.2874999999999996, "price": 1.8526785714285716}
+{"kind": "joint", "seed": 30020, "stability": [0.612], "cpu_s": 2.652327504000027, "punish": 5.551115123125783e-18, "return_gap": -0.0012500000000000011, "dev_gain": -0.3874999999999999, "price": 1.0526785714285716}
+{"kind": "joint", "seed": 30021, "stability": [0.864], "cpu_s": 2.7836486909999962, "punish": -0.041666666666666664, "return_gap": 0.0, "dev_gain": -0.44583333333333347, "price": 1.0}
+{"kind": "joint", "seed": 30022, "stability": [0.66], "cpu_s": 3.121268041999997, "punish": -0.125, "return_gap": -0.0037499999999999977, "dev_gain": -0.4124999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30023, "stability": [0.848], "cpu_s": 2.9982507229999555, "punish": -0.008333333333333331, "return_gap": 0.0, "dev_gain": -0.48749999999999993, "price": 1.0}
+{"kind": "joint", "seed": 30024, "stability": [0.824], "cpu_s": 3.0898642859999654, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.4833333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30025, "stability": [1.0], "cpu_s": 3.0505996459999665, "punish": 0.825, "return_gap": 0.39499999999999996, "dev_gain": -1.9499999999999993, "price": 1.9660714285714285}
+{"kind": "joint", "seed": 30026, "stability": [0.752], "cpu_s": 2.727604335999956, "punish": -0.19166666666666668, "return_gap": 0.0, "dev_gain": -0.4624999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30027, "stability": [0.764], "cpu_s": 2.794009129000017, "punish": 0.008333333333333331, "return_gap": 0.0, "dev_gain": -0.4541666666666667, "price": 1.0446428571428572}
+{"kind": "joint", "seed": 30028, "stability": [0.548], "cpu_s": 2.6141000960000156, "punish": -0.175, "return_gap": 0.00625, "dev_gain": -0.42499999999999993, "price": 1.0375}
+{"kind": "joint", "seed": 30029, "stability": [0.556], "cpu_s": 2.6792410230000314, "punish": -0.04166666666666666, "return_gap": 0.0, "dev_gain": -0.4833333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30030, "stability": [0.856], "cpu_s": 2.7039420269999823, "punish": -0.11666666666666665, "return_gap": 0.0, "dev_gain": -0.49999999999999983, "price": 1.0}
+{"kind": "joint", "seed": 30031, "stability": [0.764], "cpu_s": 2.9280823529999793, "punish": -0.033333333333333326, "return_gap": 0.0, "dev_gain": -0.43333333333333324, "price": 1.0}
+{"kind": "joint", "seed": 30032, "stability": [0.764], "cpu_s": 2.5277629550000142, "punish": 2.7755575615628915e-18, "return_gap": -0.0012500000000000011, "dev_gain": -0.5375, "price": 1.0}
+{"kind": "joint", "seed": 30033, "stability": [0.712], "cpu_s": 2.635926053999981, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.4708333333333334, "price": 1.0}
+{"kind": "joint", "seed": 30034, "stability": [0.816], "cpu_s": 2.7373595869999576, "punish": -0.016666666666666656, "return_gap": 0.0, "dev_gain": -0.5166666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30035, "stability": [0.752], "cpu_s": 3.515354446999993, "punish": -0.041666666666666664, "return_gap": 0.0, "dev_gain": -0.4624999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30036, "stability": [0.696], "cpu_s": 2.7378150170000026, "punish": -0.01666666666666667, "return_gap": 0.0, "dev_gain": -0.4583333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30037, "stability": [0.648], "cpu_s": 3.089387273, "punish": -0.225, "return_gap": 0.0, "dev_gain": -0.4333333333333334, "price": 1.0}
+{"kind": "joint", "seed": 30038, "stability": [0.792], "cpu_s": 2.9716239640000026, "punish": -0.09166666666666667, "return_gap": 0.0, "dev_gain": -0.5, "price": 1.0}
+{"kind": "joint", "seed": 30039, "stability": [0.768], "cpu_s": 3.0156281920000083, "punish": -0.175, "return_gap": -0.0075000000000000015, "dev_gain": -0.32499999999999984, "price": 1.0}
+{"kind": "joint", "seed": 30040, "stability": [0.688], "cpu_s": 2.8625897450000366, "punish": -0.1, "return_gap": 0.0, "dev_gain": -0.5083333333333334, "price": 1.0}
+{"kind": "joint", "seed": 30041, "stability": [0.88], "cpu_s": 2.5100629220000314, "punish": -0.016666666666666663, "return_gap": 0.0, "dev_gain": -0.4499999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30042, "stability": [0.744], "cpu_s": 2.667264647999957, "punish": -0.01666666666666667, "return_gap": 0.0, "dev_gain": -0.525, "price": 1.0}
+{"kind": "joint", "seed": 30043, "stability": [0.8], "cpu_s": 2.6941987409999797, "punish": -0.08333333333333334, "return_gap": -0.0025000000000000022, "dev_gain": -0.4458333333333333, "price": 1.0}
+{"kind": "joint", "seed": 30044, "stability": [0.796], "cpu_s": 2.687679944000024, "punish": -0.05833333333333333, "return_gap": 0.0, "dev_gain": -0.3791666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30045, "stability": [0.852], "cpu_s": 3.206303316000003, "punish": -0.08333333333333334, "return_gap": 0.0, "dev_gain": -0.5541666666666665, "price": 1.0}
+{"kind": "joint", "seed": 30046, "stability": [0.844], "cpu_s": 3.069590268000013, "punish": -0.03333333333333334, "return_gap": 0.0, "dev_gain": -0.45833333333333337, "price": 1.0}
+{"kind": "joint", "seed": 30047, "stability": [0.812], "cpu_s": 3.325059684999985, "punish": -0.05, "return_gap": 0.0, "dev_gain": -0.4458333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30048, "stability": [0.708], "cpu_s": 3.6506134069999803, "punish": -0.41666666666666663, "return_gap": -0.053750000000000006, "dev_gain": -0.4375, "price": 1.025}
+{"kind": "joint", "seed": 30049, "stability": [0.736], "cpu_s": 3.1429043289999754, "punish": 0.04166666666666667, "return_gap": 0.0, "dev_gain": -0.5375, "price": 1.0}
+{"kind": "joint", "seed": 30050, "stability": [0.824], "cpu_s": 3.497608753999998, "punish": -0.025, "return_gap": 0.0, "dev_gain": -0.4833333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30051, "stability": [0.932], "cpu_s": 3.3933455449999883, "punish": -0.008333333333333331, "return_gap": 0.0, "dev_gain": -0.475, "price": 1.0}
+{"kind": "joint", "seed": 30052, "stability": [0.86], "cpu_s": 2.75463144400004, "punish": -0.075, "return_gap": -0.0025000000000000022, "dev_gain": -0.4125, "price": 1.0}
+{"kind": "joint", "seed": 30053, "stability": [0.648], "cpu_s": 2.8476589819999845, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.4666666666666667, "price": 1.0}
+{"kind": "joint", "seed": 30054, "stability": [0.636], "cpu_s": 3.177434644000016, "punish": -0.3166666666666667, "return_gap": -0.011250000000000005, "dev_gain": -0.5208333333333333, "price": 1.032142857142857}
+{"kind": "joint", "seed": 30055, "stability": [0.712], "cpu_s": 4.46970221600003, "punish": -0.09166666666666667, "return_gap": 0.0, "dev_gain": -0.3916666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30056, "stability": [0.892], "cpu_s": 3.095909894999977, "punish": -0.06666666666666668, "return_gap": 0.0, "dev_gain": -0.42499999999999993, "price": 1.0}
+{"kind": "joint", "seed": 30057, "stability": [0.664], "cpu_s": 3.0424228690000064, "punish": -0.041666666666666664, "return_gap": -0.0012500000000000011, "dev_gain": -0.5166666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30058, "stability": [0.6], "cpu_s": 2.702028272000007, "punish": -0.03333333333333333, "return_gap": -0.0025000000000000022, "dev_gain": -0.5416666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30059, "stability": [0.896], "cpu_s": 2.6224353129999827, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.47916666666666663, "price": 1.0}
+{"kind": "joint", "seed": 30060, "stability": [0.644], "cpu_s": 3.097468182, "punish": -0.2, "return_gap": -0.0325, "dev_gain": -0.7249999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30061, "stability": [0.696], "cpu_s": 3.190982233999989, "punish": -0.10833333333333332, "return_gap": 0.0, "dev_gain": -0.4416666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30062, "stability": [0.58], "cpu_s": 2.994724845999997, "punish": -0.03333333333333334, "return_gap": 0.0, "dev_gain": -0.39583333333333337, "price": 1.1142857142857143}
+{"kind": "joint", "seed": 30063, "stability": [0.828], "cpu_s": 3.0005995620000476, "punish": -0.008333333333333331, "return_gap": 0.0, "dev_gain": -0.4833333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30064, "stability": [0.92], "cpu_s": 2.9978102410000247, "punish": 0.008333333333333331, "return_gap": -0.007499999999999995, "dev_gain": -0.48749999999999993, "price": 1.0910714285714285}
+{"kind": "joint", "seed": 30065, "stability": [0.78], "cpu_s": 3.532564320000006, "punish": -0.09166666666666667, "return_gap": -0.0075000000000000015, "dev_gain": -0.4333333333333333, "price": 1.0}
+{"kind": "joint", "seed": 30066, "stability": [0.788], "cpu_s": 2.8504581100000337, "punish": -0.01666666666666667, "return_gap": 0.0, "dev_gain": -0.4374999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30067, "stability": [0.996], "cpu_s": 3.05720192199999, "punish": 0.3666666666666667, "return_gap": 0.1875, "dev_gain": -1.2874999999999999, "price": 1.8598214285714285}
+{"kind": "joint", "seed": 30068, "stability": [0.652], "cpu_s": 2.6773686909999697, "punish": -0.2, "return_gap": 0.0, "dev_gain": -0.2874999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30069, "stability": [0.904], "cpu_s": 4.198598118000007, "punish": -0.025, "return_gap": 0.0, "dev_gain": -0.475, "price": 1.0}
+{"kind": "joint", "seed": 30070, "stability": [0.556], "cpu_s": 2.9266730040000084, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.5375, "price": 1.0}
+{"kind": "joint", "seed": 30071, "stability": [0.828], "cpu_s": 3.221559441000011, "punish": -0.01666666666666667, "return_gap": 0.0, "dev_gain": -0.44999999999999984, "price": 1.0}
+{"kind": "joint", "seed": 30072, "stability": [0.728], "cpu_s": 2.859611606000044, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.4833333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30073, "stability": [0.816], "cpu_s": 3.000898522, "punish": -0.016666666666666666, "return_gap": 0.0, "dev_gain": -0.4708333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30074, "stability": [0.8], "cpu_s": 2.6831634669999858, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.4833333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30075, "stability": [0.568], "cpu_s": 3.2242408660000024, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.49166666666666653, "price": 1.0}
+{"kind": "joint", "seed": 30076, "stability": [0.668], "cpu_s": 2.8784314209999593, "punish": -0.16666666666666669, "return_gap": 0.0, "dev_gain": -0.5541666666666667, "price": 1.0}
+{"kind": "joint", "seed": 30077, "stability": [0.604], "cpu_s": 3.2593801220000387, "punish": -0.14166666666666666, "return_gap": -0.015000000000000003, "dev_gain": -0.4833333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30078, "stability": [0.616], "cpu_s": 3.4507367690000024, "punish": -0.4833333333333334, "return_gap": -0.0037499999999999977, "dev_gain": -0.24999999999999992, "price": 1.0392857142857141}
+{"kind": "joint", "seed": 30079, "stability": [0.832], "cpu_s": 2.5754442940000217, "punish": -0.025, "return_gap": 0.0, "dev_gain": -0.475, "price": 1.0}
+{"kind": "joint", "seed": 30080, "stability": [0.56], "cpu_s": 2.5631551689999696, "punish": -0.033333333333333326, "return_gap": 0.0, "dev_gain": -0.4124999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30081, "stability": [0.576], "cpu_s": 3.5704269849999832, "punish": -0.08333333333333333, "return_gap": -0.0025000000000000022, "dev_gain": -0.45, "price": 1.0}
+{"kind": "joint", "seed": 30082, "stability": [0.84], "cpu_s": 3.5827088429999776, "punish": -0.016666666666666663, "return_gap": 0.0, "dev_gain": -0.4708333333333334, "price": 1.0}
+{"kind": "joint", "seed": 30083, "stability": [0.732], "cpu_s": 2.843029575999992, "punish": -0.10833333333333335, "return_gap": 0.0, "dev_gain": -0.4499999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30084, "stability": [0.652], "cpu_s": 3.5257095239999785, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.5, "price": 1.0}
+{"kind": "joint", "seed": 30085, "stability": [0.756], "cpu_s": 3.5450744649999706, "punish": -0.07499999999999998, "return_gap": 0.0, "dev_gain": -0.4416666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30086, "stability": [0.864], "cpu_s": 2.749443336000013, "punish": -0.03333333333333334, "return_gap": -0.0025000000000000022, "dev_gain": -0.5041666666666667, "price": 1.0}
+{"kind": "joint", "seed": 30087, "stability": [0.732], "cpu_s": 2.891174362000015, "punish": -0.075, "return_gap": 0.0, "dev_gain": -0.425, "price": 1.0}
+{"kind": "joint", "seed": 30088, "stability": [0.78], "cpu_s": 2.97092937299999, "punish": -0.09166666666666667, "return_gap": 0.0, "dev_gain": -0.5416666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30089, "stability": [0.768], "cpu_s": 3.005195683000011, "punish": -0.08333333333333334, "return_gap": 0.0, "dev_gain": -0.5041666666666667, "price": 1.0053571428571428}
+{"kind": "joint", "seed": 30090, "stability": [0.988], "cpu_s": 2.5244162649999566, "punish": 0.7916666666666667, "return_gap": 0.11625, "dev_gain": -1.2624999999999997, "price": 2.0}
+{"kind": "joint", "seed": 30091, "stability": [0.852], "cpu_s": 2.711562177000019, "punish": -0.06666666666666667, "return_gap": 0.0, "dev_gain": -0.4083333333333333, "price": 1.0}
+{"kind": "joint", "seed": 30092, "stability": [0.708], "cpu_s": 2.5299271609999323, "punish": -0.033333333333333326, "return_gap": 0.0, "dev_gain": -0.4833333333333334, "price": 1.0}
+{"kind": "joint", "seed": 30093, "stability": [0.82], "cpu_s": 2.917224979000025, "punish": -0.10833333333333332, "return_gap": 0.0, "dev_gain": -0.5249999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30094, "stability": [0.756], "cpu_s": 2.9607225290000088, "punish": -0.11666666666666665, "return_gap": -0.008750000000000003, "dev_gain": -0.4708333333333333, "price": 1.0}
+{"kind": "joint", "seed": 30095, "stability": [0.612], "cpu_s": 2.6011306990000094, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.475, "price": 1.0}
+{"kind": "joint", "seed": 30096, "stability": [0.692], "cpu_s": 2.7019036489999735, "punish": -0.075, "return_gap": -0.0025000000000000022, "dev_gain": -0.425, "price": 1.0}
+{"kind": "joint", "seed": 30097, "stability": [0.78], "cpu_s": 3.3632825249999314, "punish": -0.16666666666666666, "return_gap": -0.036250000000000004, "dev_gain": -0.3666666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30098, "stability": [0.804], "cpu_s": 2.667929858999969, "punish": -0.041666666666666664, "return_gap": 0.0, "dev_gain": -0.4625, "price": 1.0}
+{"kind": "joint", "seed": 30099, "stability": [0.64], "cpu_s": 3.0023028660000364, "punish": -0.01666666666666667, "return_gap": 0.0, "dev_gain": -0.475, "price": 1.1035714285714286}
+{"kind": "joint", "seed": 30100, "stability": [0.676], "cpu_s": 2.99581845299997, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.4875, "price": 1.0}
+{"kind": "joint", "seed": 30101, "stability": [0.712], "cpu_s": 2.8327524970000013, "punish": 0.008333333333333335, "return_gap": 0.0, "dev_gain": -0.5291666666666667, "price": 1.0410714285714284}
+{"kind": "joint", "seed": 30102, "stability": [0.76], "cpu_s": 2.7794245070000443, "punish": -0.025, "return_gap": 0.0, "dev_gain": -0.4916666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30103, "stability": [0.728], "cpu_s": 2.8394161880000865, "punish": -0.03333333333333334, "return_gap": 0.0, "dev_gain": -0.47916666666666663, "price": 1.0}
+{"kind": "joint", "seed": 30104, "stability": [0.776], "cpu_s": 2.710072002000061, "punish": 0.04999999999999999, "return_gap": 0.0125, "dev_gain": -0.525, "price": 1.082142857142857}
+{"kind": "joint", "seed": 30105, "stability": [0.732], "cpu_s": 3.125349700000015, "punish": -0.16666666666666669, "return_gap": -0.013750000000000002, "dev_gain": -0.4541666666666668, "price": 1.0651785714285715}
+{"kind": "joint", "seed": 30106, "stability": [0.676], "cpu_s": 3.525281218000032, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.4708333333333332, "price": 1.0}
+{"kind": "joint", "seed": 30107, "stability": [0.696], "cpu_s": 2.872597103999965, "punish": -0.016666666666666663, "return_gap": 0.0, "dev_gain": -0.4666666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30108, "stability": [0.732], "cpu_s": 3.7678608029999623, "punish": -0.09166666666666666, "return_gap": 0.0, "dev_gain": -0.6208333333333331, "price": 1.0}
+{"kind": "joint", "seed": 30109, "stability": [0.816], "cpu_s": 2.9835597180000377, "punish": -0.15, "return_gap": 0.0, "dev_gain": -0.5916666666666666, "price": 1.0}
+{"kind": "joint", "seed": 30110, "stability": [0.576], "cpu_s": 3.8913411270000324, "punish": 0.04166666666666667, "return_gap": 0.08499999999999999, "dev_gain": -0.5541666666666668, "price": 1.1839285714285714}
+{"kind": "joint", "seed": 30111, "stability": [0.724], "cpu_s": 2.5751059719999603, "punish": -0.008333333333333335, "return_gap": 0.0, "dev_gain": -0.475, "price": 1.0}
+{"kind": "joint", "seed": 30112, "stability": [0.828], "cpu_s": 2.785265664999997, "punish": -0.3083333333333333, "return_gap": -0.010000000000000004, "dev_gain": -0.5874999999999998, "price": 1.0}
+{"kind": "joint", "seed": 30113, "stability": [0.796], "cpu_s": 2.805167388999962, "punish": -0.15, "return_gap": -0.0025000000000000022, "dev_gain": -0.39166666666666655, "price": 1.0}
+{"kind": "joint", "seed": 30114, "stability": [1.0], "cpu_s": 3.492241771999943, "punish": 0.7083333333333333, "return_gap": 0.38, "dev_gain": -1.7833333333333328, "price": 1.944642857142857}
+{"kind": "joint", "seed": 30115, "stability": [0.776], "cpu_s": 4.100835003000043, "punish": -0.14166666666666666, "return_gap": -0.00625, "dev_gain": -0.4249999999999998, "price": 1.0}
+{"kind": "joint", "seed": 30116, "stability": [0.552], "cpu_s": 2.4848633310000423, "punish": 0.0, "return_gap": 0.0, "dev_gain": -0.4999999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30117, "stability": [0.828], "cpu_s": 2.835156030999997, "punish": 0.008333333333333342, "return_gap": 0.0012500000000000011, "dev_gain": -0.5624999999999999, "price": 1.0}
+{"kind": "joint", "seed": 30118, "stability": [0.556], "cpu_s": 2.9941133039999386, "punish": -0.016666666666666663, "return_gap": 0.0, "dev_gain": -0.49583333333333324, "price": 1.0}
+{"kind": "joint", "seed": 30119, "stability": [0.66], "cpu_s": 2.888131397000052, "punish": 0.008333333333333335, "return_gap": 0.0, "dev_gain": -0.5541666666666666, "price": 1.0}
