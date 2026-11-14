@@ -74,6 +74,9 @@ max-statistic correction instead of BH (see `DEVIATIONS.md`); prompt-covariate a
 
 Dual-use note: the hidden-channel mechanism is a closed toy parity code; see Appendix A of the paper.
 
+## Follow-up 3 (learned collusion, sensitivity, combiners): reproduce
+`FOLLOWUP3_PREREG.md` is the specification. `nice -n 15 python experiments/run_followup3_e1.py train` then `... eval`, `python experiments/run_followup3_e2.py`, `python experiments/run_followup3_analyze.py` (writes `results/followup3/summary.json`), `python scripts/make_followup3_table.py` (writes `paper/followup3_numbers.tex` and `paper/tables/f3_*.tex`). About 16 CPU-minutes plus about 1 minute of analysis.
+
 ## Where this could be submitted
 Found by web search on 13 Nov 2026; to be confirmed on the venue pages before relying on any date.
 - Verifiable Agent Safety workshop at ICLR 2027 (https://verifiableagentsafety.github.io/): abstract registration 25 Jan 2027, paper deadline 1 Feb 2027, non-archival.
