@@ -20,20 +20,30 @@ def mac(name, val):
     macros.append(f"\\newcommand{{\\{name}}}{{{val}}}")
 
 
+def neg(t):
+    """Typeset a minus sign (works in text and math mode)."""
+    return t.replace("-", "\\ensuremath{-}")
+
+
 def f3(x):
-    return f"{x:.3f}"
+    return neg(f"{x:.3f}")
 
 
 def f2(x):
-    return f"{x:.2f}"
+    return neg(f"{x:.2f}")
+
+
+def sg(x, d=2):
+    t = f"{abs(x):.{d}f}"
+    return ("$-$" + t) if x < 0 and float(t) != 0 else t
 
 
 def ci(t, d=3):
-    return f"{t[0]:.{d}f} [{t[1]:.{d}f}, {t[2]:.{d}f}]"
+    return neg(f"{t[0]:.{d}f} [{t[1]:.{d}f}, {t[2]:.{d}f}]")
 
 
 def macci(prefix, t, d=3):
-    mac(prefix, f"{t[0]:.{d}f}"); mac(prefix + "Lo", f"{t[1]:.{d}f}"); mac(prefix + "Hi", f"{t[2]:.{d}f}")
+    mac(prefix, neg(f"{t[0]:.{d}f}")); mac(prefix + "Lo", neg(f"{t[1]:.{d}f}")); mac(prefix + "Hi", neg(f"{t[2]:.{d}f}"))
 
 
 def w(name, text):
@@ -55,7 +65,7 @@ rows = []
 hist_lab = ["$<1.1$", "1.1--1.5", "1.5--2", "2--2.5", "2.5--3", "$\\ge 3$"]
 for k, lab in (("joint", "Jointly trained (candidates)"), ("indep", "Independently trained")):
     n = E1["n_" + k]
-    rows.append(f"{lab} & {n} & {E1[k+'_price_mean']:.2f} & {E1[k+'_punish_mean']:.2f} & {E1[k+'_return_gap_mean']:.2f} & "
+    rows.append(f"{lab} & {n} & {E1[k+'_price_mean']:.2f} & {sg(E1[k+'_punish_mean'])} & {sg(E1[k+'_return_gap_mean'])} & "
                 f"{E1[k+'_stability_mean']:.2f} & " + " / ".join(str(x) for x in E1[k + "_price_hist"]) + " \\\\")
 w("f3_pairs.tex", "\\begin{tabular}{lcccccc}\n\\toprule\nPairs & $n$ & Price & Punish & Return gap & Policy stab. & Price histogram (" +
   ", ".join(hist_lab) + ") \\\\\n\\midrule\n" + "\n".join(rows) + "\n\\bottomrule\n\\end{tabular}")
@@ -105,6 +115,9 @@ if "primary" in E1:
     for k in ("U3", "LR", "BONF"):
         macci(f"fEoneCombTpr{NAMES[k]}", c[k]["tpr"]); macci(f"fEoneCombFpr{NAMES[k]}", c[k]["fpr"])
 mac("fThrUthree", f3(R["frozen_thr"]["U3"]))
+for k, nm in (("e1_train", "Train"), ("e1_eval", "Eval"), ("e2e3_gen", "Gen")):
+    mac("fCpu" + nm, f"{R['compute_cpu_min'][k]:.1f}")
+mac("fCpuTotal", f"{sum(R['compute_cpu_min'].values()):.1f}")
 
 # ----------------------------------------------------------------------------------------------- E2 / E3
 if E23:
@@ -166,7 +179,7 @@ if E23:
       + "\n".join(rows) + "\n\\midrule\n"
       + f"$\\Delta$AUROC (U3 $-$ LR) & \\multicolumn{{3}}{{c}}{{{ci(e3['d_auroc_U3_LR'])}}} \\\\\n"
       + f"$\\Delta$TPR (U3 $-$ Bonferroni OR) & \\multicolumn{{3}}{{c}}{{{ci(e3['d_tpr_U3_BONF'])}}} \\\\\n"
-      + f"$\\Delta$TPR (U3 $-$ LR) & \\multicolumn{{3}}{{c}}{{{ci(e3['d_tpr_U3_LR'])}}} \\\\\n\\bottomrule\n\\end{tabular}")
+      + f"$\\Delta$TPR (U3 $-$ LR) & \\multicolumn{{3}}{{c}}{{{ci(e3['d_tpr_U3_LR'])}}} \\\\\n\\bottomrule\n\\end{{tabular}}")
     macci("fEthreeDAuroc", e3["d_auroc_U3_LR"]); macci("fEthreeDTprBonf", e3["d_tpr_U3_BONF"]); macci("fEthreeDTprLR", e3["d_tpr_U3_LR"])
     mac("fEthreeLRTrain", e3["lr_n_train"][0])
     mac("fEthreeLRBetter", "yes" if e3["lr_better"] else "no")
@@ -196,8 +209,8 @@ if E23:
     obs["H13"] = f"{sum(E23['h13_cells'].values())}/9 cells; FPR " + ", ".join(f"{E23['neg'][T]['U3'][0]:.3f}" for T in ("20", "40", "80"))
     obs["H14"] = f"TPR {ci(E23['cells']['40_0.6']['U3'])}"
     obs["H15"] = f"$\\Delta$AUROC {ci(E23['e3']['d_auroc_U3_LR'])}; $\\Delta$TPR {ci(E23['e3']['d_tpr_U3_BONF'])}"
-rows = [f"{h} ({rules[h][0]}) & {rules[h][1]} & {obs.get(h, '---')} & \\textbf{{{verd.get(h, 'not run')}}} \\\\" for h in rules]
-w("f3_verdicts.tex", "\\begin{tabular}{llp{4.4cm}l}\n\\toprule\nHyp. & Pre-registered decision rule & Observed & Verdict \\\\\n\\midrule\n"
+rows = [f"{h} & {rules[h][0]} & {rules[h][1]} & {obs.get(h, '---')} & \\textbf{{{verd.get(h, 'not run')}}} \\\\" for h in rules]
+w("f3_verdicts.tex", "\\begin{tabular}{llp{5.6cm}p{4.6cm}l}\n\\toprule\nHyp. & Study & Pre-registered decision rule & Observed & Verdict \\\\\n\\midrule\n"
   + "\n".join(rows) + "\n\\bottomrule\n\\end{tabular}")
 (P / "followup3_numbers.tex").write_text("\n".join(macros) + "\n", encoding="utf-8")
 print(len(macros), "macros;", "tables written")

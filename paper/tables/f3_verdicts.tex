@@ -1,0 +1,12 @@
+\begin{tabular}{llp{5.6cm}p{4.6cm}l}
+\toprule
+Hyp. & Study & Pre-registered decision rule & Observed & Verdict \\
+\midrule
+H10 & E1 & U3 TPR $\ge 0.60$ on learned-collusive episodes and U3 FPR $\le 0.10$ on matched independent pairs & TPR 0.917, FPR 0.500 & \textbf{inconclusive} \\
+H11 & E1 & U3 AUROC (learned-collusive vs.\ matched) cluster-bootstrap CI lower bound $>0.5$ & AUROC 0.743 [0.562, 0.931] & \textbf{inconclusive} \\
+H12 & E1 & U3 TPR $>$ best single TPR, paired 95\% CI excludes 0 & $\Delta$TPR vs.\ B2: 0.000 [0.000, 0.000] & \textbf{inconclusive} \\
+H13 & E2 & U3 TPR $\ge$ best single in all 9 cells and U3 FPR $\le 0.10$ at each $T$ & 9/9 cells; FPR 0.033, 0.075, 0.058 & \textbf{supported} \\
+H14 & E2 & U3 TPR $\ge 0.50$ at $T{=}40$, adherence 0.6 & TPR 0.700 [0.588, 0.800] & \textbf{supported} \\
+H15 & E3 & $\Delta$AUROC(U3$-$LR) CI lower bound $>-0.02$ and $\Delta$TPR(U3$-$Bonferroni) CI lower bound $>-0.05$ & $\Delta$AUROC 0.015 [0.001, 0.030]; $\Delta$TPR \ensuremath{-}0.015 [\ensuremath{-}0.033, 0.004] & \textbf{supported} \\
+\bottomrule
+\end{tabular}

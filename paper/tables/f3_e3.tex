@@ -1,0 +1,13 @@
+\begin{tabular}{lccc}
+\toprule
+Combiner & TPR [95\% CI] & FPR [95\% CI] & AUROC [95\% CI] \\
+\midrule
+U3 (max-$z$, frozen threshold) & 0.842 [0.797, 0.883] & 0.075 [0.031, 0.126] & 0.941 [0.917, 0.962] \\
+Bonferroni OR (each at FPR $0.05/3$) & 0.857 [0.815, 0.897] & 0.083 [0.039, 0.137] & --- \\
+Logistic regression on $(z_{B1},z_{B2},z_{B3})$ & 0.794 [0.745, 0.843] & 0.067 [0.025, 0.119] & 0.926 [0.902, 0.949] \\
+\midrule
+$\Delta$AUROC (U3 $-$ LR) & \multicolumn{3}{c}{0.015 [0.001, 0.030]} \\
+$\Delta$TPR (U3 $-$ Bonferroni OR) & \multicolumn{3}{c}{\ensuremath{-}0.015 [\ensuremath{-}0.033, 0.004]} \\
+$\Delta$TPR (U3 $-$ LR) & \multicolumn{3}{c}{0.048 [0.007, 0.091]} \\
+\bottomrule
+\end{tabular}

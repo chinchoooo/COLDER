@@ -137,7 +137,7 @@ def e1(fz):
     if pos:
         E, y, g, S = collect(pos, indep)
         m = metrics(y, S, thr, g, 40)
-        res["secondary_all_indep"] = {k: m[k] for k in DETS}
+        res["secondary_all_indep"] = {k: m[k] for k in DETS + ("price",)}
     # descriptive: alarm rate by group at frozen thresholds
     def rate(L, k):
         v = [e["S"][k] > thr[k] for p in L for e in byk[("joint" if p in joint else "indep", p["seed"])]]
@@ -247,6 +247,10 @@ def main():
     warnings.simplefilter("ignore")
     fz = Frozen()
     out = {"frozen_thr": fz.thr, "frozen_thr_bonf": fz.thr_bonf}
+    out["compute_cpu_min"] = {  # CPU time recorded by the runners (process_time), summed from the raw files
+        "e1_train": sum(r["cpu_s"] for r in jl(OUT / "e1_pairs.jsonl")) / 60,
+        "e1_eval": sum(r["cpu_s"] for r in jl(OUT / "e1_episodes.jsonl")) / 60,
+        "e2e3_gen": sum(r["cpu_s"] for r in jl(OUT / "e2_episodes.jsonl")) / 60}
     out["e1"] = e1(fz)
     if (OUT / "e2_episodes.jsonl").exists():
         out["e2e3"] = e2e3(fz)
