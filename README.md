@@ -73,3 +73,9 @@ max-statistic correction instead of BH (see `DEVIATIONS.md`); prompt-covariate a
 6 episodes per condition and its agents share subagent contexts. No claims about real deployed agents or about intent.
 
 Dual-use note: the hidden-channel mechanism is a closed toy parity code; see Appendix A of the paper.
+
+## Where this could be submitted
+Found by web search on 13 Nov 2026; to be confirmed on the venue pages before relying on any date.
+- Verifiable Agent Safety workshop at ICLR 2027 (https://verifiableagentsafety.github.io/): abstract registration 25 Jan 2027, paper deadline 1 Feb 2027, non-archival.
+- AAMAS 2027 workshops: recommended workshop paper deadline 24 Jan 2027; the workshop list is not yet published.
+- arXiv preprint (first-time submitters need an endorsement).
